@@ -33,8 +33,8 @@ Partial Class register
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnRegister = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -101,14 +101,14 @@ Partial Class register
         '
         'txtEmail
         '
-        Me.txtEmail.Location = New System.Drawing.Point(142, 128)
+        Me.txtEmail.Location = New System.Drawing.Point(142, 173)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(233, 26)
         Me.txtEmail.TabIndex = 7
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(142, 173)
+        Me.txtUsername.Location = New System.Drawing.Point(142, 128)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(233, 26)
         Me.txtUsername.TabIndex = 8
@@ -132,6 +132,15 @@ Partial Class register
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         '
+        'btnRegister
+        '
+        Me.btnRegister.Location = New System.Drawing.Point(158, 260)
+        Me.btnRegister.Name = "btnRegister"
+        Me.btnRegister.Size = New System.Drawing.Size(101, 38)
+        Me.btnRegister.TabIndex = 9
+        Me.btnRegister.Text = "Register"
+        Me.btnRegister.UseVisualStyleBackColor = True
+        '
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
@@ -142,15 +151,6 @@ Partial Class register
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 10
         Me.PictureBox1.TabStop = False
-        '
-        'btnRegister
-        '
-        Me.btnRegister.Location = New System.Drawing.Point(158, 260)
-        Me.btnRegister.Name = "btnRegister"
-        Me.btnRegister.Size = New System.Drawing.Size(101, 38)
-        Me.btnRegister.TabIndex = 9
-        Me.btnRegister.Text = "Register"
-        Me.btnRegister.UseVisualStyleBackColor = True
         '
         'register
         '

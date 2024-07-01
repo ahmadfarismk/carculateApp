@@ -14,12 +14,12 @@ Public Class login
         Dim dbconn As New System.Data.OleDb.OleDbConnection()
         dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\User\Desktop\ACCESS DB\carculatedbLatest.accdb"
         Try
-            Dim sql As String = "SELECT * FROM customer WHERE username = '" & username & "' AND password = '" & password & "'"
+            Dim sql As String = "SELECT * FROM customer WHERE cust_username = '" & username & "' AND cust_pass = '" & password & "'"
             Dim sqlCom As New System.Data.OleDb.OleDbCommand(sql)
             'Open Database Connection
             sqlCom.Connection = dbconn
-            sqlCom.Parameters.AddWithValue("@username", username)
-            sqlCom.Parameters.AddWithValue("@password", password)
+            sqlCom.Parameters.AddWithValue("@cust_username", username)
+            sqlCom.Parameters.AddWithValue("@cust_pass", password)
             dbconn.Open()
 
             Dim sqlRead As System.Data.OleDb.OleDbDataReader = sqlCom.ExecuteReader()
