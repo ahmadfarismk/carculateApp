@@ -43,11 +43,11 @@ Partial Class carSelect
         Me.radBut30 = New System.Windows.Forms.RadioButton()
         Me.carName = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.pnlPer = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.pctCar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
+        Me.pnlPer.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -256,15 +256,15 @@ Partial Class carSelect
         Me.Label11.TabIndex = 19
         Me.Label11.Text = "Choose downpayment percentage "
         '
-        'Panel2
+        'pnlPer
         '
-        Me.Panel2.Controls.Add(Me.radBut30)
-        Me.Panel2.Controls.Add(Me.radBut20)
-        Me.Panel2.Controls.Add(Me.radBut10)
-        Me.Panel2.Location = New System.Drawing.Point(137, 611)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(297, 31)
-        Me.Panel2.TabIndex = 0
+        Me.pnlPer.Controls.Add(Me.radBut30)
+        Me.pnlPer.Controls.Add(Me.radBut20)
+        Me.pnlPer.Controls.Add(Me.radBut10)
+        Me.pnlPer.Location = New System.Drawing.Point(137, 611)
+        Me.pnlPer.Name = "pnlPer"
+        Me.pnlPer.Size = New System.Drawing.Size(297, 31)
+        Me.pnlPer.TabIndex = 0
         '
         'PictureBox1
         '
@@ -286,7 +286,7 @@ Partial Class carSelect
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(624, 714)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.pnlPer)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.carName)
         Me.Controls.Add(Me.btnEnter)
@@ -301,8 +301,8 @@ Partial Class carSelect
         CType(Me.pctCar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
+        Me.pnlPer.ResumeLayout(False)
+        Me.pnlPer.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -329,6 +329,6 @@ Partial Class carSelect
     Friend WithEvents radBut30 As RadioButton
     Friend WithEvents carName As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents pnlPer As Panel
     Friend WithEvents PictureBox1 As PictureBox
 End Class
