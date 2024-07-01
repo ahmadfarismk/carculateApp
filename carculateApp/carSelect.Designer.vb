@@ -38,9 +38,9 @@ Partial Class carSelect
         Me.lblPercent = New System.Windows.Forms.TextBox()
         Me.lblCompPay = New System.Windows.Forms.TextBox()
         Me.btnEnter = New System.Windows.Forms.Button()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.radBut10 = New System.Windows.Forms.RadioButton()
+        Me.radBut20 = New System.Windows.Forms.RadioButton()
+        Me.radBut30 = New System.Windows.Forms.RadioButton()
         Me.carName = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -185,65 +185,66 @@ Partial Class carSelect
         '
         'lblCompPay
         '
-        Me.lblCompPay.Location = New System.Drawing.Point(159, 528)
+        Me.lblCompPay.Location = New System.Drawing.Point(161, 528)
         Me.lblCompPay.Name = "lblCompPay"
         Me.lblCompPay.Size = New System.Drawing.Size(251, 20)
         Me.lblCompPay.TabIndex = 13
         '
         'btnEnter
         '
-        Me.btnEnter.Location = New System.Drawing.Point(240, 659)
+        Me.btnEnter.Location = New System.Drawing.Point(240, 648)
         Me.btnEnter.Name = "btnEnter"
         Me.btnEnter.Size = New System.Drawing.Size(75, 23)
         Me.btnEnter.TabIndex = 14
         Me.btnEnter.Text = "Enter"
         Me.btnEnter.UseVisualStyleBackColor = True
         '
-        'RadioButton1
+        'radBut10
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton1.Location = New System.Drawing.Point(7, 3)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(48, 17)
-        Me.RadioButton1.TabIndex = 15
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "10%"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.radBut10.AutoSize = True
+        Me.radBut10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radBut10.Location = New System.Drawing.Point(7, 3)
+        Me.radBut10.Name = "radBut10"
+        Me.radBut10.Size = New System.Drawing.Size(48, 17)
+        Me.radBut10.TabIndex = 15
+        Me.radBut10.TabStop = True
+        Me.radBut10.Text = "10%"
+        Me.radBut10.UseVisualStyleBackColor = True
         '
-        'RadioButton2
+        'radBut20
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton2.Location = New System.Drawing.Point(103, 3)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(48, 17)
-        Me.RadioButton2.TabIndex = 16
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "20%"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.radBut20.AutoSize = True
+        Me.radBut20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radBut20.Location = New System.Drawing.Point(103, 3)
+        Me.radBut20.Name = "radBut20"
+        Me.radBut20.Size = New System.Drawing.Size(48, 17)
+        Me.radBut20.TabIndex = 16
+        Me.radBut20.TabStop = True
+        Me.radBut20.Text = "20%"
+        Me.radBut20.UseVisualStyleBackColor = True
         '
-        'RadioButton3
+        'radBut30
         '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton3.Location = New System.Drawing.Point(199, 3)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(48, 17)
-        Me.RadioButton3.TabIndex = 17
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "30%"
-        Me.RadioButton3.UseVisualStyleBackColor = True
+        Me.radBut30.AutoSize = True
+        Me.radBut30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radBut30.Location = New System.Drawing.Point(199, 3)
+        Me.radBut30.Name = "radBut30"
+        Me.radBut30.Size = New System.Drawing.Size(48, 17)
+        Me.radBut30.TabIndex = 17
+        Me.radBut30.TabStop = True
+        Me.radBut30.Text = "30%"
+        Me.radBut30.UseVisualStyleBackColor = True
         '
         'carName
         '
         Me.carName.AutoSize = True
         Me.carName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.carName.Location = New System.Drawing.Point(231, 180)
+        Me.carName.Location = New System.Drawing.Point(264, 171)
         Me.carName.Name = "carName"
         Me.carName.Size = New System.Drawing.Size(35, 18)
         Me.carName.TabIndex = 18
         Me.carName.Text = "Car"
+        Me.carName.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label11
         '
@@ -257,9 +258,9 @@ Partial Class carSelect
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.RadioButton3)
-        Me.Panel2.Controls.Add(Me.RadioButton2)
-        Me.Panel2.Controls.Add(Me.RadioButton1)
+        Me.Panel2.Controls.Add(Me.radBut30)
+        Me.Panel2.Controls.Add(Me.radBut20)
+        Me.Panel2.Controls.Add(Me.radBut10)
         Me.Panel2.Location = New System.Drawing.Point(137, 611)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(297, 31)
@@ -323,9 +324,9 @@ Partial Class carSelect
     Friend WithEvents lblPercent As TextBox
     Friend WithEvents lblCompPay As TextBox
     Friend WithEvents btnEnter As Button
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton3 As RadioButton
+    Friend WithEvents radBut10 As RadioButton
+    Friend WithEvents radBut20 As RadioButton
+    Friend WithEvents radBut30 As RadioButton
     Friend WithEvents carName As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Panel2 As Panel
