@@ -1,10 +1,25 @@
-﻿Public Class output
+﻿Imports System.Data.OleDb
+
+Public Class output
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Me.Close()
+        Dim dbconn As New System.Data.OleDb.OleDbConnection()
+        dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ahmad\Downloads\carculatedb[1].accdb"
+        Dim Searchquery As String = "Select * from car where id=@id"
+        Dim cmd As New OleDbCommand(Searchquery, dbconn)
+        cmd.Parameters.AddWithValue("@id", 1)
+        Dim sql As New OleDbDataAdapter(cmd)
+        Dim table As New DataTable
+        sql.Fill(table)
+        If table.Rows.Count > 0 Then
+            lblDown.Text = table.Rows(0)(1).ToString
+        Else
+            MessageBox.Show("Username and Password do not match.", "Authentication Failure", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+
 
     End Sub
 
