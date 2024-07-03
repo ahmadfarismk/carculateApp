@@ -23,7 +23,6 @@ Partial Class carSelect
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(carSelect))
-        Me.pctCar = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -45,20 +44,12 @@ Partial Class carSelect
         Me.Label11 = New System.Windows.Forms.Label()
         Me.pnlPer = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        CType(Me.pctCar, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pctCar = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.pnlPer.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctCar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'pctCar
-        '
-        Me.pctCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pctCar.Location = New System.Drawing.Point(231, 91)
-        Me.pctCar.Name = "pctCar"
-        Me.pctCar.Size = New System.Drawing.Size(100, 77)
-        Me.pctCar.TabIndex = 0
-        Me.pctCar.TabStop = False
         '
         'Label1
         '
@@ -239,7 +230,7 @@ Partial Class carSelect
         '
         Me.carName.AutoSize = True
         Me.carName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.carName.Location = New System.Drawing.Point(264, 171)
+        Me.carName.Location = New System.Drawing.Point(271, 185)
         Me.carName.Name = "carName"
         Me.carName.Size = New System.Drawing.Size(35, 18)
         Me.carName.TabIndex = 18
@@ -280,6 +271,15 @@ Partial Class carSelect
         Me.PictureBox1.TabIndex = 20
         Me.PictureBox1.TabStop = False
         '
+        'pctCar
+        '
+        Me.pctCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pctCar.Location = New System.Drawing.Point(238, 105)
+        Me.pctCar.Name = "pctCar"
+        Me.pctCar.Size = New System.Drawing.Size(100, 77)
+        Me.pctCar.TabIndex = 0
+        Me.pctCar.TabStop = False
+        '
         'carSelect
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -298,12 +298,12 @@ Partial Class carSelect
         Me.Controls.Add(Me.pctCar)
         Me.Name = "carSelect"
         Me.Text = "carSelect"
-        CType(Me.pctCar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.pnlPer.ResumeLayout(False)
         Me.pnlPer.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctCar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -43,74 +43,83 @@ Partial Class register
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(24, 11)
+        Me.Label1.Location = New System.Drawing.Point(16, 7)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(176, 46)
+        Me.Label1.Size = New System.Drawing.Size(124, 31)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Register"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(24, 131)
+        Me.Label2.Location = New System.Drawing.Point(16, 85)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(83, 20)
+        Me.Label2.Size = New System.Drawing.Size(55, 13)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Username"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(33, 86)
+        Me.Label3.Location = New System.Drawing.Point(22, 56)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(74, 20)
+        Me.Label3.Size = New System.Drawing.Size(49, 13)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Fullname"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(63, 176)
+        Me.Label4.Location = New System.Drawing.Point(42, 114)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(48, 20)
+        Me.Label4.Size = New System.Drawing.Size(32, 13)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Email"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(33, 215)
+        Me.Label5.Location = New System.Drawing.Point(22, 140)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(78, 20)
+        Me.Label5.Size = New System.Drawing.Size(53, 13)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Password"
         '
         'txtFullname
         '
-        Me.txtFullname.Location = New System.Drawing.Point(142, 83)
+        Me.txtFullname.Location = New System.Drawing.Point(95, 54)
+        Me.txtFullname.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtFullname.Name = "txtFullname"
-        Me.txtFullname.Size = New System.Drawing.Size(233, 26)
+        Me.txtFullname.Size = New System.Drawing.Size(157, 20)
         Me.txtFullname.TabIndex = 5
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(142, 212)
+        Me.txtPassword.Location = New System.Drawing.Point(95, 138)
+        Me.txtPassword.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(233, 26)
+        Me.txtPassword.Size = New System.Drawing.Size(157, 20)
         Me.txtPassword.TabIndex = 6
         '
         'txtEmail
         '
-        Me.txtEmail.Location = New System.Drawing.Point(142, 173)
+        Me.txtEmail.Location = New System.Drawing.Point(95, 112)
+        Me.txtEmail.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(233, 26)
+        Me.txtEmail.Size = New System.Drawing.Size(157, 20)
         Me.txtEmail.TabIndex = 7
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(142, 128)
+        Me.txtUsername.Location = New System.Drawing.Point(95, 83)
+        Me.txtUsername.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(233, 26)
+        Me.txtUsername.Size = New System.Drawing.Size(157, 20)
         Me.txtUsername.TabIndex = 8
         '
         'GroupBox1
@@ -126,17 +135,20 @@ Partial Class register
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(185, 134)
+        Me.GroupBox1.Location = New System.Drawing.Point(123, 87)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(420, 304)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(280, 198)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         '
         'btnRegister
         '
-        Me.btnRegister.Location = New System.Drawing.Point(158, 260)
+        Me.btnRegister.Location = New System.Drawing.Point(105, 169)
+        Me.btnRegister.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnRegister.Name = "btnRegister"
-        Me.btnRegister.Size = New System.Drawing.Size(101, 38)
+        Me.btnRegister.Size = New System.Drawing.Size(67, 25)
         Me.btnRegister.TabIndex = 9
         Me.btnRegister.Text = "Register"
         Me.btnRegister.UseVisualStyleBackColor = True
@@ -146,19 +158,21 @@ Partial Class register
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(800, 119)
+        Me.PictureBox1.Size = New System.Drawing.Size(533, 77)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 10
         Me.PictureBox1.TabStop = False
         '
         'register
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(533, 303)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "register"
         Me.Text = "register"
         Me.GroupBox1.ResumeLayout(False)

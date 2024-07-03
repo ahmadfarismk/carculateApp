@@ -79,6 +79,12 @@
     <Compile Include="carSelect.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="InputCar.Designer.vb">
+      <DependentUpon>InputCar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="InputCar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="login.Designer.vb">
       <DependentUpon>login.vb</DependentUpon>
     </Compile>
@@ -134,6 +140,9 @@
   <ItemGroup>
     <EmbeddedResource Include="carSelect.resx">
       <DependentUpon>carSelect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputCar.resx">
+      <DependentUpon>InputCar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.vb</DependentUpon>
