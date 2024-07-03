@@ -151,7 +151,7 @@ Partial Class carSelect
         Me.Panel1.Controls.Add(Me.lblYear)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Location = New System.Drawing.Point(137, 267)
+        Me.Panel1.Location = New System.Drawing.Point(137, 229)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(315, 136)
         Me.Panel1.TabIndex = 9
@@ -160,7 +160,7 @@ Partial Class carSelect
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(167, 419)
+        Me.Label9.Location = New System.Drawing.Point(165, 389)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(271, 18)
         Me.Label9.TabIndex = 10
@@ -170,7 +170,7 @@ Partial Class carSelect
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(134, 507)
+        Me.Label10.Location = New System.Drawing.Point(132, 477)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(324, 18)
         Me.Label10.TabIndex = 11
@@ -178,21 +178,21 @@ Partial Class carSelect
         '
         'lblPercent
         '
-        Me.lblPercent.Location = New System.Drawing.Point(160, 445)
+        Me.lblPercent.Location = New System.Drawing.Point(158, 415)
         Me.lblPercent.Name = "lblPercent"
         Me.lblPercent.Size = New System.Drawing.Size(252, 20)
         Me.lblPercent.TabIndex = 12
         '
         'lblCompPay
         '
-        Me.lblCompPay.Location = New System.Drawing.Point(161, 528)
+        Me.lblCompPay.Location = New System.Drawing.Point(159, 498)
         Me.lblCompPay.Name = "lblCompPay"
         Me.lblCompPay.Size = New System.Drawing.Size(251, 20)
         Me.lblCompPay.TabIndex = 13
         '
         'btnEnter
         '
-        Me.btnEnter.Location = New System.Drawing.Point(240, 648)
+        Me.btnEnter.Location = New System.Drawing.Point(238, 629)
         Me.btnEnter.Name = "btnEnter"
         Me.btnEnter.Size = New System.Drawing.Size(75, 23)
         Me.btnEnter.TabIndex = 14
@@ -250,7 +250,7 @@ Partial Class carSelect
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(167, 585)
+        Me.Label11.Location = New System.Drawing.Point(165, 555)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(238, 18)
         Me.Label11.TabIndex = 19
@@ -261,7 +261,7 @@ Partial Class carSelect
         Me.pnlPer.Controls.Add(Me.radBut30)
         Me.pnlPer.Controls.Add(Me.radBut20)
         Me.pnlPer.Controls.Add(Me.radBut10)
-        Me.pnlPer.Location = New System.Drawing.Point(137, 611)
+        Me.pnlPer.Location = New System.Drawing.Point(135, 581)
         Me.pnlPer.Name = "pnlPer"
         Me.pnlPer.Size = New System.Drawing.Size(297, 31)
         Me.pnlPer.TabIndex = 0
@@ -275,7 +275,7 @@ Partial Class carSelect
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(624, 86)
+        Me.PictureBox1.Size = New System.Drawing.Size(594, 86)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 20
         Me.PictureBox1.TabStop = False
@@ -284,7 +284,7 @@ Partial Class carSelect
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(624, 714)
+        Me.ClientSize = New System.Drawing.Size(594, 714)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.pnlPer)
         Me.Controls.Add(Me.Label11)

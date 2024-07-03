@@ -5,6 +5,8 @@ Public Class carSelect
         Dim percent As String = lblPercent.Text
         Dim pay As String = lblCompPay.Text
 
+
+
         If (percent = "" And pay = "") Then
             MessageBox.Show("Please Enter all detail ", "Authentication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
