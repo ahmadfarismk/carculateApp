@@ -34,8 +34,8 @@ Partial Class carSelect
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.lblPercent = New System.Windows.Forms.TextBox()
-        Me.lblCompPay = New System.Windows.Forms.TextBox()
+        Me.txtPercent = New System.Windows.Forms.TextBox()
+        Me.txtYear = New System.Windows.Forms.TextBox()
         Me.btnEnter = New System.Windows.Forms.Button()
         Me.radBut10 = New System.Windows.Forms.RadioButton()
         Me.radBut20 = New System.Windows.Forms.RadioButton()
@@ -167,19 +167,19 @@ Partial Class carSelect
         Me.Label10.TabIndex = 11
         Me.Label10.Text = "Enter amount of year to complete the payment : "
         '
-        'lblPercent
+        'txtPercent
         '
-        Me.lblPercent.Location = New System.Drawing.Point(158, 415)
-        Me.lblPercent.Name = "lblPercent"
-        Me.lblPercent.Size = New System.Drawing.Size(252, 20)
-        Me.lblPercent.TabIndex = 12
+        Me.txtPercent.Location = New System.Drawing.Point(158, 415)
+        Me.txtPercent.Name = "txtPercent"
+        Me.txtPercent.Size = New System.Drawing.Size(252, 20)
+        Me.txtPercent.TabIndex = 12
         '
-        'lblCompPay
+        'txtYear
         '
-        Me.lblCompPay.Location = New System.Drawing.Point(159, 498)
-        Me.lblCompPay.Name = "lblCompPay"
-        Me.lblCompPay.Size = New System.Drawing.Size(251, 20)
-        Me.lblCompPay.TabIndex = 13
+        Me.txtYear.Location = New System.Drawing.Point(159, 498)
+        Me.txtYear.Name = "txtYear"
+        Me.txtYear.Size = New System.Drawing.Size(251, 20)
+        Me.txtYear.TabIndex = 13
         '
         'btnEnter
         '
@@ -290,8 +290,8 @@ Partial Class carSelect
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.carName)
         Me.Controls.Add(Me.btnEnter)
-        Me.Controls.Add(Me.lblCompPay)
-        Me.Controls.Add(Me.lblPercent)
+        Me.Controls.Add(Me.txtYear)
+        Me.Controls.Add(Me.txtPercent)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Panel1)
@@ -321,8 +321,8 @@ Partial Class carSelect
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents lblPercent As TextBox
-    Friend WithEvents lblCompPay As TextBox
+    Friend WithEvents txtPercent As TextBox
+    Friend WithEvents txtYear As TextBox
     Friend WithEvents btnEnter As Button
     Friend WithEvents radBut10 As RadioButton
     Friend WithEvents radBut20 As RadioButton
