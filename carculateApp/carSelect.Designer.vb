@@ -44,11 +44,9 @@ Partial Class carSelect
         Me.Label11 = New System.Windows.Forms.Label()
         Me.pnlPer = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.pctCar = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.pnlPer.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pctCar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -271,15 +269,6 @@ Partial Class carSelect
         Me.PictureBox1.TabIndex = 20
         Me.PictureBox1.TabStop = False
         '
-        'pctCar
-        '
-        Me.pctCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pctCar.Location = New System.Drawing.Point(238, 105)
-        Me.pctCar.Name = "pctCar"
-        Me.pctCar.Size = New System.Drawing.Size(100, 77)
-        Me.pctCar.TabIndex = 0
-        Me.pctCar.TabStop = False
-        '
         'carSelect
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -295,7 +284,6 @@ Partial Class carSelect
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.pctCar)
         Me.Name = "carSelect"
         Me.Text = "carSelect"
         Me.Panel1.ResumeLayout(False)
@@ -303,13 +291,10 @@ Partial Class carSelect
         Me.pnlPer.ResumeLayout(False)
         Me.pnlPer.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pctCar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents pctCar As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
