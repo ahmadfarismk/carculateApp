@@ -12,7 +12,7 @@ Public Class login
             MessageBox.Show("Username and password are blank", "Authentication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
         Dim dbconn As New System.Data.OleDb.OleDbConnection()
-        dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=carculatedbLatest.accdb"
+        dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=carculatedb.accdb"
         Try
             Dim sql As String = "SELECT * FROM customer WHERE cust_username = '" & username & "' AND cust_pass = '" & password & "'"
             Dim sqlCom As New System.Data.OleDb.OleDbCommand(sql)

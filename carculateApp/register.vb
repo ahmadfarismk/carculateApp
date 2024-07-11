@@ -21,7 +21,7 @@
 
         'setting up db connection
         Dim dbconn As New System.Data.OleDb.OleDbConnection()
-        dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=carculatedbLatest.accdb"
+        dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=carculatedb.accdb"
 
         Try
             ' Open the database connection

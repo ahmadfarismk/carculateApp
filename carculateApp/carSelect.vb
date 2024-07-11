@@ -41,7 +41,7 @@ Public Class carSelect
 
     Private Sub carSelect_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim dbconn As New System.Data.OleDb.OleDbConnection()
-        dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ahmad\Downloads\carculatedb.accdb"
+        dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=carculatedb.accdb"
         Dim Searchquery As String = "Select * from car where car_id=@id"
 
         'Dim car As String

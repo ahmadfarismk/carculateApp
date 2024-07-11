@@ -37,7 +37,7 @@ Public Class InputCar
         If (carName <> "" And carPrice <> 0 And carCC <> 0 And percentageSal <> 0 And carYear <> 0) Then
             'setting up db connection
             Dim dbconn As New System.Data.OleDb.OleDbConnection()
-            dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ahmad\Downloads\carculatedb.accdb"
+            dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=carculatedb.accdb"
             Try
                 ' Prepare the SQL insert statement
                 Dim sql As String = "INSERT INTO car_input(car_model, car_price, car_cc, percent_deduct_salary, downpayment,year_complete_payment) VALUES(@carName, @carPrice, @carCC, @percentageSal, @percentageDown, @carYear)"

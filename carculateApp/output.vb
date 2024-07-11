@@ -27,7 +27,7 @@ Public Class output
 
         'Database Connection
         Dim dbconn As New System.Data.OleDb.OleDbConnection()
-        dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ahmad\Downloads\carculatedb.accdb"
+        dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=carculatedb.accdb"
         Dim Searchquery As String = "Select * from car where id=@id"
         Dim cmd As New OleDbCommand(Searchquery, dbconn)
         cmd.Parameters.AddWithValue("@id", choose)
