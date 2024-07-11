@@ -73,6 +73,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="carculatedbLatestDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>carculatedbLatestDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="carSelect.Designer.vb">
       <DependentUpon>carSelect.vb</DependentUpon>
     </Compile>
@@ -164,6 +169,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="carculatedbLatestDataSet.xsc">
+      <DependentUpon>carculatedbLatestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="carculatedbLatestDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>carculatedbLatestDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="carculatedbLatestDataSet.xss">
+      <DependentUpon>carculatedbLatestDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -198,6 +214,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="carculatedbLatest.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="carculatedb[1][1].accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
