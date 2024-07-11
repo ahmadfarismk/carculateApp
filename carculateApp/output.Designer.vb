@@ -28,18 +28,18 @@ Partial Class output
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblCarName = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblSalary = New System.Windows.Forms.Label()
+        Me.lblMonthPay = New System.Windows.Forms.Label()
+        Me.lblDown = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblTotYear = New System.Windows.Forms.Label()
+        Me.lblInstallment = New System.Windows.Forms.Label()
+        Me.lblYearExp = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.lblYearExp = New System.Windows.Forms.Label()
-        Me.lblTotYear = New System.Windows.Forms.Label()
-        Me.lblInstallment = New System.Windows.Forms.Label()
-        Me.lblSalary = New System.Windows.Forms.Label()
-        Me.lblMonthPay = New System.Windows.Forms.Label()
-        Me.lblDown = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
         Me._carculatedb_1__1_DataSet1 = New carculateApp._carculatedb_1__1_DataSet1()
         Me.CarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -100,6 +100,33 @@ Partial Class output
         Me.Panel1.Size = New System.Drawing.Size(288, 157)
         Me.Panel1.TabIndex = 3
         '
+        'lblSalary
+        '
+        Me.lblSalary.AutoSize = True
+        Me.lblSalary.Location = New System.Drawing.Point(154, 129)
+        Me.lblSalary.Name = "lblSalary"
+        Me.lblSalary.Size = New System.Drawing.Size(45, 13)
+        Me.lblSalary.TabIndex = 13
+        Me.lblSalary.Text = "Label11"
+        '
+        'lblMonthPay
+        '
+        Me.lblMonthPay.AutoSize = True
+        Me.lblMonthPay.Location = New System.Drawing.Point(154, 105)
+        Me.lblMonthPay.Name = "lblMonthPay"
+        Me.lblMonthPay.Size = New System.Drawing.Size(45, 13)
+        Me.lblMonthPay.TabIndex = 14
+        Me.lblMonthPay.Text = "Label12"
+        '
+        'lblDown
+        '
+        Me.lblDown.AutoSize = True
+        Me.lblDown.Location = New System.Drawing.Point(154, 18)
+        Me.lblDown.Name = "lblDown"
+        Me.lblDown.Size = New System.Drawing.Size(45, 13)
+        Me.lblDown.TabIndex = 15
+        Me.lblDown.Text = "Label13"
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -108,6 +135,33 @@ Partial Class output
         Me.Label2.Size = New System.Drawing.Size(75, 13)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Downpayment"
+        '
+        'lblTotYear
+        '
+        Me.lblTotYear.AutoSize = True
+        Me.lblTotYear.Location = New System.Drawing.Point(154, 84)
+        Me.lblTotYear.Name = "lblTotYear"
+        Me.lblTotYear.Size = New System.Drawing.Size(39, 13)
+        Me.lblTotYear.TabIndex = 11
+        Me.lblTotYear.Text = "Label9"
+        '
+        'lblInstallment
+        '
+        Me.lblInstallment.AutoSize = True
+        Me.lblInstallment.Location = New System.Drawing.Point(154, 39)
+        Me.lblInstallment.Name = "lblInstallment"
+        Me.lblInstallment.Size = New System.Drawing.Size(45, 13)
+        Me.lblInstallment.TabIndex = 12
+        Me.lblInstallment.Text = "Label10"
+        '
+        'lblYearExp
+        '
+        Me.lblYearExp.AutoSize = True
+        Me.lblYearExp.Location = New System.Drawing.Point(154, 62)
+        Me.lblYearExp.Name = "lblYearExp"
+        Me.lblYearExp.Size = New System.Drawing.Size(39, 13)
+        Me.lblYearExp.TabIndex = 10
+        Me.lblYearExp.Text = "Label8"
         '
         'Label3
         '
@@ -153,60 +207,6 @@ Partial Class output
         Me.Label7.Size = New System.Drawing.Size(101, 13)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "Minimum salary own"
-        '
-        'lblYearExp
-        '
-        Me.lblYearExp.AutoSize = True
-        Me.lblYearExp.Location = New System.Drawing.Point(154, 62)
-        Me.lblYearExp.Name = "lblYearExp"
-        Me.lblYearExp.Size = New System.Drawing.Size(39, 13)
-        Me.lblYearExp.TabIndex = 10
-        Me.lblYearExp.Text = "Label8"
-        '
-        'lblTotYear
-        '
-        Me.lblTotYear.AutoSize = True
-        Me.lblTotYear.Location = New System.Drawing.Point(154, 84)
-        Me.lblTotYear.Name = "lblTotYear"
-        Me.lblTotYear.Size = New System.Drawing.Size(39, 13)
-        Me.lblTotYear.TabIndex = 11
-        Me.lblTotYear.Text = "Label9"
-        '
-        'lblInstallment
-        '
-        Me.lblInstallment.AutoSize = True
-        Me.lblInstallment.Location = New System.Drawing.Point(154, 39)
-        Me.lblInstallment.Name = "lblInstallment"
-        Me.lblInstallment.Size = New System.Drawing.Size(45, 13)
-        Me.lblInstallment.TabIndex = 12
-        Me.lblInstallment.Text = "Label10"
-        '
-        'lblSalary
-        '
-        Me.lblSalary.AutoSize = True
-        Me.lblSalary.Location = New System.Drawing.Point(154, 129)
-        Me.lblSalary.Name = "lblSalary"
-        Me.lblSalary.Size = New System.Drawing.Size(45, 13)
-        Me.lblSalary.TabIndex = 13
-        Me.lblSalary.Text = "Label11"
-        '
-        'lblMonthPay
-        '
-        Me.lblMonthPay.AutoSize = True
-        Me.lblMonthPay.Location = New System.Drawing.Point(154, 105)
-        Me.lblMonthPay.Name = "lblMonthPay"
-        Me.lblMonthPay.Size = New System.Drawing.Size(45, 13)
-        Me.lblMonthPay.TabIndex = 14
-        Me.lblMonthPay.Text = "Label12"
-        '
-        'lblDown
-        '
-        Me.lblDown.AutoSize = True
-        Me.lblDown.Location = New System.Drawing.Point(154, 18)
-        Me.lblDown.Name = "lblDown"
-        Me.lblDown.Size = New System.Drawing.Size(45, 13)
-        Me.lblDown.TabIndex = 15
-        Me.lblDown.Text = "Label13"
         '
         'btnExit
         '

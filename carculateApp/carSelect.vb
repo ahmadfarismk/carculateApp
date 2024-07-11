@@ -22,9 +22,19 @@ Public Class carSelect
 
         If (percentSal = "" And pay = "") Then
             MessageBox.Show("Please Enter all detail ", "Authentication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            carName.Text = ""
+            lblPrice.Text = ""
+            lblYear.Text = ""
+            lblCC.Text = ""
+            lblCost.Text = ""
+            Me.Close()
+            output.ShowDialog()
+
+
         End If
 
-        output.ShowDialog()
+
 
 
     End Sub

@@ -30,15 +30,15 @@ Partial Class InputCar
         Me.radBut10 = New System.Windows.Forms.RadioButton()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.btnEnter = New System.Windows.Forms.Button()
-        Me.lblCompPay = New System.Windows.Forms.TextBox()
-        Me.lblPercent = New System.Windows.Forms.TextBox()
+        Me.txtYear = New System.Windows.Forms.TextBox()
+        Me.txtCarPercentage = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtCarName = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtCarPrice = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtCarCC = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -127,19 +127,19 @@ Partial Class InputCar
         Me.btnEnter.Text = "Enter"
         Me.btnEnter.UseVisualStyleBackColor = False
         '
-        'lblCompPay
+        'txtYear
         '
-        Me.lblCompPay.Location = New System.Drawing.Point(219, 397)
-        Me.lblCompPay.Name = "lblCompPay"
-        Me.lblCompPay.Size = New System.Drawing.Size(251, 20)
-        Me.lblCompPay.TabIndex = 24
+        Me.txtYear.Location = New System.Drawing.Point(219, 397)
+        Me.txtYear.Name = "txtYear"
+        Me.txtYear.Size = New System.Drawing.Size(251, 20)
+        Me.txtYear.TabIndex = 24
         '
-        'lblPercent
+        'txtCarPercentage
         '
-        Me.lblPercent.Location = New System.Drawing.Point(211, 328)
-        Me.lblPercent.Name = "lblPercent"
-        Me.lblPercent.Size = New System.Drawing.Size(252, 20)
-        Me.lblPercent.TabIndex = 23
+        Me.txtCarPercentage.Location = New System.Drawing.Point(211, 328)
+        Me.txtCarPercentage.Name = "txtCarPercentage"
+        Me.txtCarPercentage.Size = New System.Drawing.Size(252, 20)
+        Me.txtCarPercentage.TabIndex = 23
         '
         'Label10
         '
@@ -161,12 +161,12 @@ Partial Class InputCar
         Me.Label9.TabIndex = 21
         Me.Label9.Text = "Enter percentage to deduct from salary :"
         '
-        'TextBox1
+        'txtCarName
         '
-        Me.TextBox1.Location = New System.Drawing.Point(274, 185)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(252, 20)
-        Me.TextBox1.TabIndex = 28
+        Me.txtCarName.Location = New System.Drawing.Point(274, 185)
+        Me.txtCarName.Name = "txtCarName"
+        Me.txtCarName.Size = New System.Drawing.Size(252, 20)
+        Me.txtCarName.TabIndex = 28
         '
         'Label1
         '
@@ -178,12 +178,12 @@ Partial Class InputCar
         Me.Label1.TabIndex = 27
         Me.Label1.Text = "Enter car name:"
         '
-        'TextBox2
+        'txtCarPrice
         '
-        Me.TextBox2.Location = New System.Drawing.Point(274, 221)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(252, 20)
-        Me.TextBox2.TabIndex = 30
+        Me.txtCarPrice.Location = New System.Drawing.Point(274, 221)
+        Me.txtCarPrice.Name = "txtCarPrice"
+        Me.txtCarPrice.Size = New System.Drawing.Size(252, 20)
+        Me.txtCarPrice.TabIndex = 30
         '
         'Label2
         '
@@ -195,12 +195,12 @@ Partial Class InputCar
         Me.Label2.TabIndex = 29
         Me.Label2.Text = "Enter car price:"
         '
-        'TextBox3
+        'txtCarCC
         '
-        Me.TextBox3.Location = New System.Drawing.Point(274, 259)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(252, 20)
-        Me.TextBox3.TabIndex = 32
+        Me.txtCarCC.Location = New System.Drawing.Point(274, 259)
+        Me.txtCarCC.Name = "txtCarCC"
+        Me.txtCarCC.Size = New System.Drawing.Size(252, 20)
+        Me.txtCarCC.TabIndex = 32
         '
         'Label3
         '
@@ -237,17 +237,17 @@ Partial Class InputCar
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(669, 617)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.txtCarCC)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.txtCarPrice)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtCarName)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.pnlPer)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.btnEnter)
-        Me.Controls.Add(Me.lblCompPay)
-        Me.Controls.Add(Me.lblPercent)
+        Me.Controls.Add(Me.txtYear)
+        Me.Controls.Add(Me.txtCarPercentage)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.PictureBox1)
@@ -269,15 +269,15 @@ Partial Class InputCar
     Friend WithEvents radBut10 As RadioButton
     Friend WithEvents Label11 As Label
     Friend WithEvents btnEnter As Button
-    Friend WithEvents lblCompPay As TextBox
-    Friend WithEvents lblPercent As TextBox
+    Friend WithEvents txtYear As TextBox
+    Friend WithEvents txtCarPercentage As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtCarName As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtCarPrice As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtCarCC As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Panel1 As Panel

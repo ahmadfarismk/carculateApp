@@ -29,4 +29,9 @@
         carSelect.choose = 3
         output.choose = 3
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        InputCar.ShowDialog()
+
+    End Sub
 End Class

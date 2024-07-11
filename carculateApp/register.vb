@@ -52,18 +52,18 @@
 
             ' Execute the insert command
             Dim result As Integer = sqlCom.ExecuteNonQuery()
-            If result > 0 Then
-                MessageBox.Show("Registration successful, you may login now.", "Success registration", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                login.Show()
-                Me.Hide()
-            Else
-                MessageBox.Show("Registration failed.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
+                If result > 0 Then
+                    MessageBox.Show("Registration successful, you may login now.", "Success registration", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    login.Show()
+                    Me.Hide()
+                Else
+                    MessageBox.Show("Registration failed.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
 
-            ' Close the database connection
-            dbconn.Close()
-        Catch ex As Exception
-            MessageBox.Show("Failed to connect to Database: " & ex.Message, "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+                ' Close the database connection
+                dbconn.Close()
+            Catch ex As Exception
+                MessageBox.Show("Failed to connect to Database: " & ex.Message, "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
     End Sub
 End Class
