@@ -42,7 +42,7 @@ Partial Class mainPage
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnhistory = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
@@ -237,7 +237,7 @@ Partial Class mainPage
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 256)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(668, 113)
+        Me.Panel1.Size = New System.Drawing.Size(637, 113)
         Me.Panel1.TabIndex = 20
         '
         'Button1
@@ -251,16 +251,16 @@ Partial Class mainPage
         Me.Button1.Text = "Calculate your desired car "
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'Button3
+        'btnhistory
         '
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button3.Location = New System.Drawing.Point(283, 415)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(98, 34)
-        Me.Button3.TabIndex = 23
-        Me.Button3.Text = "Your History"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btnhistory.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnhistory.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnhistory.Location = New System.Drawing.Point(283, 415)
+        Me.btnhistory.Name = "btnhistory"
+        Me.btnhistory.Size = New System.Drawing.Size(98, 34)
+        Me.btnhistory.TabIndex = 23
+        Me.btnhistory.Text = "Your History"
+        Me.btnhistory.UseVisualStyleBackColor = False
         '
         'PictureBox2
         '
@@ -270,7 +270,7 @@ Partial Class mainPage
         Me.PictureBox2.Location = New System.Drawing.Point(0, 86)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Padding = New System.Windows.Forms.Padding(0, 50, 0, 0)
-        Me.PictureBox2.Size = New System.Drawing.Size(668, 170)
+        Me.PictureBox2.Size = New System.Drawing.Size(637, 170)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 3
         Me.PictureBox2.TabStop = False
@@ -284,7 +284,7 @@ Partial Class mainPage
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(668, 86)
+        Me.PictureBox1.Size = New System.Drawing.Size(637, 86)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
@@ -293,8 +293,8 @@ Partial Class mainPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(668, 468)
-        Me.Controls.Add(Me.Button3)
+        Me.ClientSize = New System.Drawing.Size(637, 468)
+        Me.Controls.Add(Me.btnhistory)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblMdl)
@@ -332,5 +332,5 @@ Partial Class mainPage
     Friend WithEvents Label12 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnhistory As Button
 End Class

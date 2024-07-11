@@ -29,4 +29,10 @@
         carSelect.choose = 3
         output.choose = 3
     End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnhistory.Click
+        history.Show()
+    End Sub
+
+
 End Class
