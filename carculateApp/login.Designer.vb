@@ -55,77 +55,88 @@ Partial Class login
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox1.Location = New System.Drawing.Point(240, 175)
+        Me.GroupBox1.Location = New System.Drawing.Point(160, 114)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(316, 265)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(211, 172)
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
         '
         'btnRegister
         '
-        Me.btnRegister.Location = New System.Drawing.Point(177, 195)
+        Me.btnRegister.Location = New System.Drawing.Point(118, 127)
+        Me.btnRegister.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnRegister.Name = "btnRegister"
-        Me.btnRegister.Size = New System.Drawing.Size(106, 38)
+        Me.btnRegister.Size = New System.Drawing.Size(71, 25)
         Me.btnRegister.TabIndex = 6
         Me.btnRegister.Text = "Register"
         Me.btnRegister.UseVisualStyleBackColor = True
         '
         'btnLogin
         '
-        Me.btnLogin.Location = New System.Drawing.Point(27, 195)
+        Me.btnLogin.Location = New System.Drawing.Point(18, 127)
+        Me.btnLogin.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(106, 38)
+        Me.btnLogin.Size = New System.Drawing.Size(71, 25)
         Me.btnLogin.TabIndex = 5
         Me.btnLogin.Text = "Login"
         Me.btnLogin.UseVisualStyleBackColor = True
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(117, 137)
+        Me.txtPassword.Location = New System.Drawing.Point(78, 89)
+        Me.txtPassword.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(166, 26)
+        Me.txtPassword.Size = New System.Drawing.Size(112, 20)
         Me.txtPassword.TabIndex = 4
+        Me.txtPassword.UseSystemPasswordChar = True
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(117, 73)
+        Me.txtUsername.Location = New System.Drawing.Point(78, 47)
+        Me.txtUsername.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(166, 26)
+        Me.txtUsername.Size = New System.Drawing.Size(112, 20)
         Me.txtUsername.TabIndex = 3
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(28, 140)
+        Me.Label3.Location = New System.Drawing.Point(19, 91)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(78, 20)
+        Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Password"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(22, 76)
+        Me.Label2.Location = New System.Drawing.Point(15, 49)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(83, 20)
+        Me.Label2.Size = New System.Drawing.Size(55, 13)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Username"
         '
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("MS Reference Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 11)
+        Me.Label1.Location = New System.Drawing.Point(4, 7)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(166, 65)
+        Me.Label1.Size = New System.Drawing.Size(111, 42)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Login"
         '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Location = New System.Drawing.Point(-2, -2)
+        Me.Panel1.Location = New System.Drawing.Point(-1, -1)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(801, 126)
+        Me.Panel1.Size = New System.Drawing.Size(534, 82)
         Me.Panel1.TabIndex = 8
         '
         'PictureBox1
@@ -135,8 +146,9 @@ Partial Class login
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(801, 132)
+        Me.PictureBox1.Size = New System.Drawing.Size(534, 86)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -157,15 +169,16 @@ Partial Class login
         '
         'login
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(793, 520)
+        Me.ClientSize = New System.Drawing.Size(529, 338)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox1)
         Me.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerBindingSource, "cust_username", True))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "login"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "login"

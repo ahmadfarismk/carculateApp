@@ -64,6 +64,17 @@ Namespace My
                 Return CType(Me("carculatedb_1__1_ConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\carculatedbLatest.a"& _ 
+            "ccdb")>  _
+        Public ReadOnly Property carculatedbLatestConnectionString() As String
+            Get
+                Return CType(Me("carculatedbLatestConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
