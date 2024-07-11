@@ -22,7 +22,7 @@
         If (username <> "" And password <> "" And fullname <> "" And email <> "") Then
             'setting up db connection
             Dim dbconn As New System.Data.OleDb.OleDbConnection()
-            dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\User\Desktop\ACCESS DB\carculatedbLatest.accdb"
+            dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ahmad\Downloads\carculatedb.accdb"
             Try
                 ' Prepare the SQL insert statement
                 Dim sql As String = "INSERT INTO customer(cust_username, cust_pass, cust_email, cust_fullname) VALUES(@cust_username, @cust_pass, @cust_email, @cust_fullname)"

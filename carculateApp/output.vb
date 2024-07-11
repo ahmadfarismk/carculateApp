@@ -9,6 +9,12 @@ Public Class output
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        lblDown.Text = ""
+        lblInstallment.Text = ""
+        lblYearExp.Text = ""
+        lblTotYear.Text = ""
+        lblMonthPay.Text = ""
+        lblSalary.Text = ""
         Me.Close()
 
 
@@ -21,7 +27,7 @@ Public Class output
 
         'Database Connection
         Dim dbconn As New System.Data.OleDb.OleDbConnection()
-        dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ahmad\Downloads\carculatedb[1].accdb"
+        dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ahmad\Downloads\carculatedb.accdb"
         Dim Searchquery As String = "Select * from car where id=@id"
         Dim cmd As New OleDbCommand(Searchquery, dbconn)
         cmd.Parameters.AddWithValue("@id", choose)
@@ -30,7 +36,8 @@ Public Class output
         sql.Fill(table)
 
         'Variable declaration
-        Dim percentSal As Double = Val(carSelect.txtPercent.Text)
+        Dim percentSal As Double = Val(carSelect.txtPercent.Text) / 100
+
         Dim year As Integer = Val(carSelect.txtYear.Text)
 
         Dim cc As Integer = Convert.ToInt32(table.Rows(0)(2).ToString)
@@ -82,5 +89,14 @@ Public Class output
 
     Private Sub lblDown_Click(sender As Object, e As EventArgs) Handles lblDown.Click
 
+    End Sub
+
+    Private Sub output_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        lblDown.Text = ""
+        lblInstallment.Text = ""
+        lblYearExp.Text = ""
+        lblTotYear.Text = ""
+        lblMonthPay.Text = ""
+        lblSalary.Text = ""
     End Sub
 End Class
