@@ -27,11 +27,13 @@ Partial Public Class carculatedbDataSet
     
     Private tablecar As carDataTable
     
-    Private tablecar_input As car_inputDataTable
-    
     Private tablecustomer As customerDataTable
     
     Private tablehistory As historyDataTable
+    
+    Private relationcarhistory As Global.System.Data.DataRelation
+    
+    Private relationcustomerhistory As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -65,9 +67,6 @@ Partial Public Class carculatedbDataSet
             If (Not (ds.Tables("car")) Is Nothing) Then
                 MyBase.Tables.Add(New carDataTable(ds.Tables("car")))
             End If
-            If (Not (ds.Tables("car_input")) Is Nothing) Then
-                MyBase.Tables.Add(New car_inputDataTable(ds.Tables("car_input")))
-            End If
             If (Not (ds.Tables("customer")) Is Nothing) Then
                 MyBase.Tables.Add(New customerDataTable(ds.Tables("customer")))
             End If
@@ -98,16 +97,6 @@ Partial Public Class carculatedbDataSet
     Public ReadOnly Property car() As carDataTable
         Get
             Return Me.tablecar
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property car_input() As car_inputDataTable
-        Get
-            Return Me.tablecar_input
         End Get
     End Property
     
@@ -201,9 +190,6 @@ Partial Public Class carculatedbDataSet
             If (Not (ds.Tables("car")) Is Nothing) Then
                 MyBase.Tables.Add(New carDataTable(ds.Tables("car")))
             End If
-            If (Not (ds.Tables("car_input")) Is Nothing) Then
-                MyBase.Tables.Add(New car_inputDataTable(ds.Tables("car_input")))
-            End If
             If (Not (ds.Tables("customer")) Is Nothing) Then
                 MyBase.Tables.Add(New customerDataTable(ds.Tables("customer")))
             End If
@@ -248,12 +234,6 @@ Partial Public Class carculatedbDataSet
                 Me.tablecar.InitVars
             End If
         End If
-        Me.tablecar_input = CType(MyBase.Tables("car_input"),car_inputDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tablecar_input) Is Nothing) Then
-                Me.tablecar_input.InitVars
-            End If
-        End If
         Me.tablecustomer = CType(MyBase.Tables("customer"),customerDataTable)
         If (initTable = true) Then
             If (Not (Me.tablecustomer) Is Nothing) Then
@@ -266,6 +246,8 @@ Partial Public Class carculatedbDataSet
                 Me.tablehistory.InitVars
             End If
         End If
+        Me.relationcarhistory = Me.Relations("carhistory")
+        Me.relationcustomerhistory = Me.Relations("customerhistory")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -278,23 +260,19 @@ Partial Public Class carculatedbDataSet
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tablecar = New carDataTable()
         MyBase.Tables.Add(Me.tablecar)
-        Me.tablecar_input = New car_inputDataTable()
-        MyBase.Tables.Add(Me.tablecar_input)
         Me.tablecustomer = New customerDataTable()
         MyBase.Tables.Add(Me.tablecustomer)
         Me.tablehistory = New historyDataTable()
         MyBase.Tables.Add(Me.tablehistory)
+        Me.relationcarhistory = New Global.System.Data.DataRelation("carhistory", New Global.System.Data.DataColumn() {Me.tablecar.car_IDColumn}, New Global.System.Data.DataColumn() {Me.tablehistory.car_IDColumn}, false)
+        Me.Relations.Add(Me.relationcarhistory)
+        Me.relationcustomerhistory = New Global.System.Data.DataRelation("customerhistory", New Global.System.Data.DataColumn() {Me.tablecustomer.cust_IDColumn}, New Global.System.Data.DataColumn() {Me.tablehistory.cust_idColumn}, false)
+        Me.Relations.Add(Me.relationcustomerhistory)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Private Function ShouldSerializecar() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Private Function ShouldSerializecar_input() As Boolean
         Return false
     End Function
     
@@ -370,9 +348,6 @@ Partial Public Class carculatedbDataSet
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Delegate Sub carRowChangeEventHandler(ByVal sender As Object, ByVal e As carRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Delegate Sub car_inputRowChangeEventHandler(ByVal sender As Object, ByVal e As car_inputRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Delegate Sub customerRowChangeEventHandler(ByVal sender As Object, ByVal e As customerRowChangeEvent)
@@ -669,354 +644,6 @@ Partial Public Class carculatedbDataSet
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "carDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class car_inputDataTable
-        Inherits Global.System.Data.TypedTableBase(Of car_inputRow)
-        
-        Private columnID As Global.System.Data.DataColumn
-        
-        Private columncar_model As Global.System.Data.DataColumn
-        
-        Private columncar_price As Global.System.Data.DataColumn
-        
-        Private columncar_cc As Global.System.Data.DataColumn
-        
-        Private columnpercent_deduct_salary As Global.System.Data.DataColumn
-        
-        Private columndownpayment As Global.System.Data.DataColumn
-        
-        Private columnyear_complete_payment As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "car_input"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnID
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property car_modelColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columncar_model
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property car_priceColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columncar_price
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property car_ccColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columncar_cc
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property percent_deduct_salaryColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnpercent_deduct_salary
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property downpaymentColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columndownpayment
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property year_complete_paymentColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnyear_complete_payment
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As car_inputRow
-            Get
-                Return CType(Me.Rows(index),car_inputRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event car_inputRowChanging As car_inputRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event car_inputRowChanged As car_inputRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event car_inputRowDeleting As car_inputRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event car_inputRowDeleted As car_inputRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Sub Addcar_inputRow(ByVal row As car_inputRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function Addcar_inputRow(ByVal car_model As String, ByVal car_price As String, ByVal car_cc As String, ByVal percent_deduct_salary As String, ByVal downpayment As String, ByVal year_complete_payment As String) As car_inputRow
-            Dim rowcar_inputRow As car_inputRow = CType(Me.NewRow,car_inputRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, car_model, car_price, car_cc, percent_deduct_salary, downpayment, year_complete_payment}
-            rowcar_inputRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowcar_inputRow)
-            Return rowcar_inputRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function FindByID(ByVal ID As Integer) As car_inputRow
-            Return CType(Me.Rows.Find(New Object() {ID}),car_inputRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As car_inputDataTable = CType(MyBase.Clone,car_inputDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New car_inputDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnID = MyBase.Columns("ID")
-            Me.columncar_model = MyBase.Columns("car_model")
-            Me.columncar_price = MyBase.Columns("car_price")
-            Me.columncar_cc = MyBase.Columns("car_cc")
-            Me.columnpercent_deduct_salary = MyBase.Columns("percent_deduct_salary")
-            Me.columndownpayment = MyBase.Columns("downpayment")
-            Me.columnyear_complete_payment = MyBase.Columns("year_complete_payment")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID)
-            Me.columncar_model = New Global.System.Data.DataColumn("car_model", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncar_model)
-            Me.columncar_price = New Global.System.Data.DataColumn("car_price", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncar_price)
-            Me.columncar_cc = New Global.System.Data.DataColumn("car_cc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncar_cc)
-            Me.columnpercent_deduct_salary = New Global.System.Data.DataColumn("percent_deduct_salary", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnpercent_deduct_salary)
-            Me.columndownpayment = New Global.System.Data.DataColumn("downpayment", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndownpayment)
-            Me.columnyear_complete_payment = New Global.System.Data.DataColumn("year_complete_payment", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnyear_complete_payment)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
-            Me.columnID.AutoIncrement = true
-            Me.columnID.AutoIncrementSeed = -1
-            Me.columnID.AutoIncrementStep = -1
-            Me.columnID.AllowDBNull = false
-            Me.columnID.Unique = true
-            Me.columncar_model.MaxLength = 255
-            Me.columncar_price.MaxLength = 255
-            Me.columncar_cc.MaxLength = 255
-            Me.columnpercent_deduct_salary.MaxLength = 255
-            Me.columndownpayment.MaxLength = 255
-            Me.columnyear_complete_payment.MaxLength = 255
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function Newcar_inputRow() As car_inputRow
-            Return CType(Me.NewRow,car_inputRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New car_inputRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(car_inputRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.car_inputRowChangedEvent) Is Nothing) Then
-                RaiseEvent car_inputRowChanged(Me, New car_inputRowChangeEvent(CType(e.Row,car_inputRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.car_inputRowChangingEvent) Is Nothing) Then
-                RaiseEvent car_inputRowChanging(Me, New car_inputRowChangeEvent(CType(e.Row,car_inputRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.car_inputRowDeletedEvent) Is Nothing) Then
-                RaiseEvent car_inputRowDeleted(Me, New car_inputRowChangeEvent(CType(e.Row,car_inputRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.car_inputRowDeletingEvent) Is Nothing) Then
-                RaiseEvent car_inputRowDeleting(Me, New car_inputRowChangeEvent(CType(e.Row,car_inputRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub Removecar_inputRow(ByVal row As car_inputRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As carculatedbDataSet = New carculatedbDataSet()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "car_inputDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -1390,6 +1017,8 @@ Partial Public Class carculatedbDataSet
         
         Private columnhistory_ID As Global.System.Data.DataColumn
         
+        Private columncar_ID As Global.System.Data.DataColumn
+        
         Private columncar_model As Global.System.Data.DataColumn
         
         Private columncar_price As Global.System.Data.DataColumn
@@ -1405,6 +1034,8 @@ Partial Public Class carculatedbDataSet
         Private columnmonthly_payment As Global.System.Data.DataColumn
         
         Private columnmin_salary_own As Global.System.Data.DataColumn
+        
+        Private columncust_id As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
@@ -1446,6 +1077,14 @@ Partial Public Class carculatedbDataSet
         Public ReadOnly Property history_IDColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnhistory_ID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property car_IDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncar_ID
             End Get
         End Property
         
@@ -1514,6 +1153,14 @@ Partial Public Class carculatedbDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property cust_idColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncust_id
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1550,9 +1197,15 @@ Partial Public Class carculatedbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddhistoryRow(ByVal car_model As String, ByVal car_price As String, ByVal downpayment As String, ByVal yearly_instalment As String, ByVal yearly_expenses As String, ByVal yearly_payment As String, ByVal monthly_payment As String, ByVal min_salary_own As String) As historyRow
+        Public Overloads Function AddhistoryRow(ByVal parentcarRowBycarhistory As carRow, ByVal car_model As String, ByVal car_price As String, ByVal downpayment As String, ByVal yearly_instalment As String, ByVal yearly_expenses As String, ByVal yearly_payment As String, ByVal monthly_payment As String, ByVal min_salary_own As String, ByVal parentcustomerRowBycustomerhistory As customerRow) As historyRow
             Dim rowhistoryRow As historyRow = CType(Me.NewRow,historyRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, car_model, car_price, downpayment, yearly_instalment, yearly_expenses, yearly_payment, monthly_payment, min_salary_own}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, car_model, car_price, downpayment, yearly_instalment, yearly_expenses, yearly_payment, monthly_payment, min_salary_own, Nothing}
+            If (Not (parentcarRowBycarhistory) Is Nothing) Then
+                columnValuesArray(1) = parentcarRowBycarhistory(0)
+            End If
+            If (Not (parentcustomerRowBycustomerhistory) Is Nothing) Then
+                columnValuesArray(10) = parentcustomerRowBycustomerhistory(0)
+            End If
             rowhistoryRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowhistoryRow)
             Return rowhistoryRow
@@ -1582,6 +1235,7 @@ Partial Public Class carculatedbDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnhistory_ID = MyBase.Columns("history_ID")
+            Me.columncar_ID = MyBase.Columns("car_ID")
             Me.columncar_model = MyBase.Columns("car_model")
             Me.columncar_price = MyBase.Columns("car_price")
             Me.columndownpayment = MyBase.Columns("downpayment")
@@ -1590,6 +1244,7 @@ Partial Public Class carculatedbDataSet
             Me.columnyearly_payment = MyBase.Columns("yearly_payment")
             Me.columnmonthly_payment = MyBase.Columns("monthly_payment")
             Me.columnmin_salary_own = MyBase.Columns("min_salary_own")
+            Me.columncust_id = MyBase.Columns("cust_id")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1597,6 +1252,8 @@ Partial Public Class carculatedbDataSet
         Private Sub InitClass()
             Me.columnhistory_ID = New Global.System.Data.DataColumn("history_ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnhistory_ID)
+            Me.columncar_ID = New Global.System.Data.DataColumn("car_ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncar_ID)
             Me.columncar_model = New Global.System.Data.DataColumn("car_model", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncar_model)
             Me.columncar_price = New Global.System.Data.DataColumn("car_price", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -1613,6 +1270,8 @@ Partial Public Class carculatedbDataSet
             MyBase.Columns.Add(Me.columnmonthly_payment)
             Me.columnmin_salary_own = New Global.System.Data.DataColumn("min_salary_own", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnmin_salary_own)
+            Me.columncust_id = New Global.System.Data.DataColumn("cust_id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncust_id)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnhistory_ID}, true))
             Me.columnhistory_ID.AutoIncrement = true
             Me.columnhistory_ID.AutoIncrementSeed = -1
@@ -1916,195 +1575,16 @@ Partial Public Class carculatedbDataSet
         Public Sub SetyearNull()
             Me(Me.tablecar.yearColumn) = Global.System.Convert.DBNull
         End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class car_inputRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tablecar_input As car_inputDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tablecar_input = CType(Me.Table,car_inputDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ID() As Integer
-            Get
-                Return CType(Me(Me.tablecar_input.IDColumn),Integer)
-            End Get
-            Set
-                Me(Me.tablecar_input.IDColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property car_model() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablecar_input.car_modelColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'car_model' in table 'car_input' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablecar_input.car_modelColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property car_price() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablecar_input.car_priceColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'car_price' in table 'car_input' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablecar_input.car_priceColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property car_cc() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablecar_input.car_ccColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'car_cc' in table 'car_input' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablecar_input.car_ccColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property percent_deduct_salary() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablecar_input.percent_deduct_salaryColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'percent_deduct_salary' in table 'car_input' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablecar_input.percent_deduct_salaryColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property downpayment() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablecar_input.downpaymentColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'downpayment' in table 'car_input' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablecar_input.downpaymentColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property year_complete_payment() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablecar_input.year_complete_paymentColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'year_complete_payment' in table 'car_input' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablecar_input.year_complete_paymentColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function Iscar_modelNull() As Boolean
-            Return Me.IsNull(Me.tablecar_input.car_modelColumn)
+        Public Function GethistoryRows() As historyRow()
+            If (Me.Table.ChildRelations("carhistory") Is Nothing) Then
+                Return New historyRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("carhistory")),historyRow())
+            End If
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub Setcar_modelNull()
-            Me(Me.tablecar_input.car_modelColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function Iscar_priceNull() As Boolean
-            Return Me.IsNull(Me.tablecar_input.car_priceColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub Setcar_priceNull()
-            Me(Me.tablecar_input.car_priceColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function Iscar_ccNull() As Boolean
-            Return Me.IsNull(Me.tablecar_input.car_ccColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub Setcar_ccNull()
-            Me(Me.tablecar_input.car_ccColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function Ispercent_deduct_salaryNull() As Boolean
-            Return Me.IsNull(Me.tablecar_input.percent_deduct_salaryColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub Setpercent_deduct_salaryNull()
-            Me(Me.tablecar_input.percent_deduct_salaryColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsdownpaymentNull() As Boolean
-            Return Me.IsNull(Me.tablecar_input.downpaymentColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetdownpaymentNull()
-            Me(Me.tablecar_input.downpaymentColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function Isyear_complete_paymentNull() As Boolean
-            Return Me.IsNull(Me.tablecar_input.year_complete_paymentColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub Setyear_complete_paymentNull()
-            Me(Me.tablecar_input.year_complete_paymentColumn) = Global.System.Convert.DBNull
-        End Sub
     End Class
     
     '''<summary>
@@ -2240,6 +1720,16 @@ Partial Public Class carculatedbDataSet
         Public Sub Setcust_passNull()
             Me(Me.tablecustomer.cust_passColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GethistoryRows() As historyRow()
+            If (Me.Table.ChildRelations("customerhistory") Is Nothing) Then
+                Return New historyRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("customerhistory")),historyRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -2265,6 +1755,21 @@ Partial Public Class carculatedbDataSet
             End Get
             Set
                 Me(Me.tablehistory.history_IDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property car_ID() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablehistory.car_IDColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'car_ID' in table 'history' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablehistory.car_IDColumn) = value
             End Set
         End Property
         
@@ -2390,6 +1895,55 @@ Partial Public Class carculatedbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property cust_id() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablehistory.cust_idColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cust_id' in table 'history' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablehistory.cust_idColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property carRow() As carRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("carhistory")),carRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("carhistory"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property customerRow() As customerRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("customerhistory")),customerRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("customerhistory"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Iscar_IDNull() As Boolean
+            Return Me.IsNull(Me.tablehistory.car_IDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setcar_IDNull()
+            Me(Me.tablehistory.car_IDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function Iscar_modelNull() As Boolean
             Return Me.IsNull(Me.tablehistory.car_modelColumn)
         End Function
@@ -2483,6 +2037,18 @@ Partial Public Class carculatedbDataSet
         Public Sub Setmin_salary_ownNull()
             Me(Me.tablehistory.min_salary_ownColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Iscust_idNull() As Boolean
+            Return Me.IsNull(Me.tablehistory.cust_idColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setcust_idNull()
+            Me(Me.tablehistory.cust_idColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -2507,42 +2073,6 @@ Partial Public Class carculatedbDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public ReadOnly Property Row() As carRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Class car_inputRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As car_inputRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New(ByVal row As car_inputRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Row() As car_inputRow
             Get
                 Return Me.eventRow
             End Get
@@ -3037,483 +2567,6 @@ Namespace carculatedbDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_year,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class car_inputTableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
-        
-        Private _connection As Global.System.Data.OleDb.OleDbConnection
-        
-        Private _transaction As Global.System.Data.OleDb.OleDbTransaction
-        
-        Private _commandCollection() As Global.System.Data.OleDb.OleDbCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.OleDb.OleDbDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Property Connection() As Global.System.Data.OleDb.OleDbConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.OleDb.OleDbCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Property Transaction() As Global.System.Data.OleDb.OleDbTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.OleDb.OleDbCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter()
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "car_input"
-            tableMapping.ColumnMappings.Add("ID", "ID")
-            tableMapping.ColumnMappings.Add("car_model", "car_model")
-            tableMapping.ColumnMappings.Add("car_price", "car_price")
-            tableMapping.ColumnMappings.Add("car_cc", "car_cc")
-            tableMapping.ColumnMappings.Add("percent_deduct_salary", "percent_deduct_salary")
-            tableMapping.ColumnMappings.Add("downpayment", "downpayment")
-            tableMapping.ColumnMappings.Add("year_complete_payment", "year_complete_payment")
-            Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `car_input` WHERE ((`ID` = ?) AND ((? = 1 AND `car_model` IS NULL) OR"& _ 
-                " (`car_model` = ?)) AND ((? = 1 AND `car_price` IS NULL) OR (`car_price` = ?)) A"& _ 
-                "ND ((? = 1 AND `car_cc` IS NULL) OR (`car_cc` = ?)) AND ((? = 1 AND `percent_ded"& _ 
-                "uct_salary` IS NULL) OR (`percent_deduct_salary` = ?)) AND ((? = 1 AND `downpaym"& _ 
-                "ent` IS NULL) OR (`downpayment` = ?)) AND ((? = 1 AND `year_complete_payment` IS"& _ 
-                " NULL) OR (`year_complete_payment` = ?)))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_car_model", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_model", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_car_model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_model", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_car_price", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_price", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_car_price", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_price", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_car_cc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_cc", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_car_cc", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_cc", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_percent_deduct_salary", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "percent_deduct_salary", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_percent_deduct_salary", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "percent_deduct_salary", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_downpayment", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "downpayment", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_downpayment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "downpayment", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_year_complete_payment", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "year_complete_payment", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_year_complete_payment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "year_complete_payment", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `car_input` (`car_model`, `car_price`, `car_cc`, `percent_deduct_sala"& _ 
-                "ry`, `downpayment`, `year_complete_payment`) VALUES (?, ?, ?, ?, ?, ?)"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("car_model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_model", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("car_price", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_price", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("car_cc", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_cc", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("percent_deduct_salary", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "percent_deduct_salary", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("downpayment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "downpayment", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("year_complete_payment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "year_complete_payment", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `car_input` SET `car_model` = ?, `car_price` = ?, `car_cc` = ?, `percent_d"& _ 
-                "educt_salary` = ?, `downpayment` = ?, `year_complete_payment` = ? WHERE ((`ID` ="& _ 
-                " ?) AND ((? = 1 AND `car_model` IS NULL) OR (`car_model` = ?)) AND ((? = 1 AND `"& _ 
-                "car_price` IS NULL) OR (`car_price` = ?)) AND ((? = 1 AND `car_cc` IS NULL) OR ("& _ 
-                "`car_cc` = ?)) AND ((? = 1 AND `percent_deduct_salary` IS NULL) OR (`percent_ded"& _ 
-                "uct_salary` = ?)) AND ((? = 1 AND `downpayment` IS NULL) OR (`downpayment` = ?))"& _ 
-                " AND ((? = 1 AND `year_complete_payment` IS NULL) OR (`year_complete_payment` = "& _ 
-                "?)))"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("car_model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_model", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("car_price", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_price", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("car_cc", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_cc", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("percent_deduct_salary", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "percent_deduct_salary", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("downpayment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "downpayment", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("year_complete_payment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "year_complete_payment", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_car_model", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_model", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_car_model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_model", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_car_price", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_price", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_car_price", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_price", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_car_cc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_cc", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_car_cc", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_cc", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_percent_deduct_salary", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "percent_deduct_salary", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_percent_deduct_salary", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "percent_deduct_salary", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_downpayment", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "downpayment", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_downpayment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "downpayment", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_year_complete_payment", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "year_complete_payment", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_year_complete_payment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "year_complete_payment", Global.System.Data.DataRowVersion.Original, false, Nothing))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.carculateApp.My.MySettings.Default.carculatedbConnectionString
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, car_model, car_price, car_cc, percent_deduct_salary, downpayment, year"& _ 
-                "_complete_payment FROM car_input"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As carculatedbDataSet.car_inputDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As carculatedbDataSet.car_inputDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As carculatedbDataSet.car_inputDataTable = New carculatedbDataSet.car_inputDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As carculatedbDataSet.car_inputDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As carculatedbDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "car_input")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_car_model As String, ByVal Original_car_price As String, ByVal Original_car_cc As String, ByVal Original_percent_deduct_salary As String, ByVal Original_downpayment As String, ByVal Original_year_complete_payment As String) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
-            If (Original_car_model Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_car_model,String)
-            End If
-            If (Original_car_price Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_car_price,String)
-            End If
-            If (Original_car_cc Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_car_cc,String)
-            End If
-            If (Original_percent_deduct_salary Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_percent_deduct_salary,String)
-            End If
-            If (Original_downpayment Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_downpayment,String)
-            End If
-            If (Original_year_complete_payment Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_year_complete_payment,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal car_model As String, ByVal car_price As String, ByVal car_cc As String, ByVal percent_deduct_salary As String, ByVal downpayment As String, ByVal year_complete_payment As String) As Integer
-            If (car_model Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(car_model,String)
-            End If
-            If (car_price Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(car_price,String)
-            End If
-            If (car_cc Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(car_cc,String)
-            End If
-            If (percent_deduct_salary Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(percent_deduct_salary,String)
-            End If
-            If (downpayment Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(downpayment,String)
-            End If
-            If (year_complete_payment Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(year_complete_payment,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal car_model As String, ByVal car_price As String, ByVal car_cc As String, ByVal percent_deduct_salary As String, ByVal downpayment As String, ByVal year_complete_payment As String, ByVal Original_ID As Integer, ByVal Original_car_model As String, ByVal Original_car_price As String, ByVal Original_car_cc As String, ByVal Original_percent_deduct_salary As String, ByVal Original_downpayment As String, ByVal Original_year_complete_payment As String) As Integer
-            If (car_model Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(car_model,String)
-            End If
-            If (car_price Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(car_price,String)
-            End If
-            If (car_cc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(car_cc,String)
-            End If
-            If (percent_deduct_salary Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(percent_deduct_salary,String)
-            End If
-            If (downpayment Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(downpayment,String)
-            End If
-            If (year_complete_payment Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(year_complete_payment,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_ID,Integer)
-            If (Original_car_model Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_car_model,String)
-            End If
-            If (Original_car_price Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_car_price,String)
-            End If
-            If (Original_car_cc Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_car_cc,String)
-            End If
-            If (Original_percent_deduct_salary Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_percent_deduct_salary,String)
-            End If
-            If (Original_downpayment Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_downpayment,String)
-            End If
-            If (Original_year_complete_payment Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_year_complete_payment,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -4069,6 +3122,7 @@ Namespace carculatedbDataSetTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "history"
             tableMapping.ColumnMappings.Add("history_ID", "history_ID")
+            tableMapping.ColumnMappings.Add("car_ID", "car_ID")
             tableMapping.ColumnMappings.Add("car_model", "car_model")
             tableMapping.ColumnMappings.Add("car_price", "car_price")
             tableMapping.ColumnMappings.Add("downpayment", "downpayment")
@@ -4077,19 +3131,23 @@ Namespace carculatedbDataSetTableAdapters
             tableMapping.ColumnMappings.Add("yearly_payment", "yearly_payment")
             tableMapping.ColumnMappings.Add("monthly_payment", "monthly_payment")
             tableMapping.ColumnMappings.Add("min_salary_own", "min_salary_own")
+            tableMapping.ColumnMappings.Add("cust_id", "cust_id")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `history` WHERE ((`history_ID` = ?) AND ((? = 1 AND `car_model` IS NU"& _ 
-                "LL) OR (`car_model` = ?)) AND ((? = 1 AND `car_price` IS NULL) OR (`car_price` ="& _ 
-                " ?)) AND ((? = 1 AND `downpayment` IS NULL) OR (`downpayment` = ?)) AND ((? = 1 "& _ 
-                "AND `yearly_instalment` IS NULL) OR (`yearly_instalment` = ?)) AND ((? = 1 AND `"& _ 
-                "yearly_expenses` IS NULL) OR (`yearly_expenses` = ?)) AND ((? = 1 AND `yearly_pa"& _ 
-                "yment` IS NULL) OR (`yearly_payment` = ?)) AND ((? = 1 AND `monthly_payment` IS "& _ 
-                "NULL) OR (`monthly_payment` = ?)) AND ((? = 1 AND `min_salary_own` IS NULL) OR ("& _ 
-                "`min_salary_own` = ?)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `history` WHERE ((`history_ID` = ?) AND ((? = 1 AND `car_ID` IS NULL)"& _ 
+                " OR (`car_ID` = ?)) AND ((? = 1 AND `car_model` IS NULL) OR (`car_model` = ?)) A"& _ 
+                "ND ((? = 1 AND `car_price` IS NULL) OR (`car_price` = ?)) AND ((? = 1 AND `downp"& _ 
+                "ayment` IS NULL) OR (`downpayment` = ?)) AND ((? = 1 AND `yearly_instalment` IS "& _ 
+                "NULL) OR (`yearly_instalment` = ?)) AND ((? = 1 AND `yearly_expenses` IS NULL) O"& _ 
+                "R (`yearly_expenses` = ?)) AND ((? = 1 AND `yearly_payment` IS NULL) OR (`yearly"& _ 
+                "_payment` = ?)) AND ((? = 1 AND `monthly_payment` IS NULL) OR (`monthly_payment`"& _ 
+                " = ?)) AND ((? = 1 AND `min_salary_own` IS NULL) OR (`min_salary_own` = ?)) AND "& _ 
+                "((? = 1 AND `cust_id` IS NULL) OR (`cust_id` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_history_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "history_ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_car_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_ID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_car_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_car_model", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_model", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_car_model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_model", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_car_price", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_price", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -4106,12 +3164,15 @@ Namespace carculatedbDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_monthly_payment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "monthly_payment", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_min_salary_own", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "min_salary_own", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_min_salary_own", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "min_salary_own", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_cust_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cust_id", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_cust_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cust_id", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `history` (`car_model`, `car_price`, `downpayment`, `yearly_instalmen"& _ 
-                "t`, `yearly_expenses`, `yearly_payment`, `monthly_payment`, `min_salary_own`) VA"& _ 
-                "LUES (?, ?, ?, ?, ?, ?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `history` (`car_ID`, `car_model`, `car_price`, `downpayment`, `yearly"& _ 
+                "_instalment`, `yearly_expenses`, `yearly_payment`, `monthly_payment`, `min_salar"& _ 
+                "y_own`, `cust_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("car_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_ID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("car_model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_model", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("car_price", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_price", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("downpayment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "downpayment", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -4120,19 +3181,23 @@ Namespace carculatedbDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("yearly_payment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "yearly_payment", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("monthly_payment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "monthly_payment", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("min_salary_own", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "min_salary_own", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cust_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cust_id", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `history` SET `car_model` = ?, `car_price` = ?, `downpayment` = ?, `yearly"& _ 
-                "_instalment` = ?, `yearly_expenses` = ?, `yearly_payment` = ?, `monthly_payment`"& _ 
-                " = ?, `min_salary_own` = ? WHERE ((`history_ID` = ?) AND ((? = 1 AND `car_model`"& _ 
-                " IS NULL) OR (`car_model` = ?)) AND ((? = 1 AND `car_price` IS NULL) OR (`car_pr"& _ 
-                "ice` = ?)) AND ((? = 1 AND `downpayment` IS NULL) OR (`downpayment` = ?)) AND (("& _ 
-                "? = 1 AND `yearly_instalment` IS NULL) OR (`yearly_instalment` = ?)) AND ((? = 1"& _ 
-                " AND `yearly_expenses` IS NULL) OR (`yearly_expenses` = ?)) AND ((? = 1 AND `yea"& _ 
-                "rly_payment` IS NULL) OR (`yearly_payment` = ?)) AND ((? = 1 AND `monthly_paymen"& _ 
-                "t` IS NULL) OR (`monthly_payment` = ?)) AND ((? = 1 AND `min_salary_own` IS NULL"& _ 
-                ") OR (`min_salary_own` = ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `history` SET `car_ID` = ?, `car_model` = ?, `car_price` = ?, `downpayment"& _ 
+                "` = ?, `yearly_instalment` = ?, `yearly_expenses` = ?, `yearly_payment` = ?, `mo"& _ 
+                "nthly_payment` = ?, `min_salary_own` = ?, `cust_id` = ? WHERE ((`history_ID` = ?"& _ 
+                ") AND ((? = 1 AND `car_ID` IS NULL) OR (`car_ID` = ?)) AND ((? = 1 AND `car_mode"& _ 
+                "l` IS NULL) OR (`car_model` = ?)) AND ((? = 1 AND `car_price` IS NULL) OR (`car_"& _ 
+                "price` = ?)) AND ((? = 1 AND `downpayment` IS NULL) OR (`downpayment` = ?)) AND "& _ 
+                "((? = 1 AND `yearly_instalment` IS NULL) OR (`yearly_instalment` = ?)) AND ((? ="& _ 
+                " 1 AND `yearly_expenses` IS NULL) OR (`yearly_expenses` = ?)) AND ((? = 1 AND `y"& _ 
+                "early_payment` IS NULL) OR (`yearly_payment` = ?)) AND ((? = 1 AND `monthly_paym"& _ 
+                "ent` IS NULL) OR (`monthly_payment` = ?)) AND ((? = 1 AND `min_salary_own` IS NU"& _ 
+                "LL) OR (`min_salary_own` = ?)) AND ((? = 1 AND `cust_id` IS NULL) OR (`cust_id` "& _ 
+                "= ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("car_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_ID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("car_model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_model", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("car_price", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_price", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("downpayment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "downpayment", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -4141,7 +3206,10 @@ Namespace carculatedbDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("yearly_payment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "yearly_payment", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("monthly_payment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "monthly_payment", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("min_salary_own", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "min_salary_own", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cust_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cust_id", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_history_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "history_ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_car_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_ID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_car_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_car_model", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_model", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_car_model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_model", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_car_price", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "car_price", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -4158,6 +3226,8 @@ Namespace carculatedbDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_monthly_payment", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "monthly_payment", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_min_salary_own", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "min_salary_own", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_min_salary_own", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "min_salary_own", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_cust_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cust_id", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_cust_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cust_id", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4173,8 +3243,9 @@ Namespace carculatedbDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT history_ID, car_model, car_price, downpayment, yearly_instalment, yearly_e"& _ 
-                "xpenses, yearly_payment, monthly_payment, min_salary_own FROM history"
+            Me._commandCollection(0).CommandText = "SELECT history_ID, car_ID, car_model, car_price, downpayment, yearly_instalment, "& _ 
+                "yearly_expenses, yearly_payment, monthly_payment, min_salary_own, cust_id FROM h"& _ 
+                "istory"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -4234,63 +3305,77 @@ Namespace carculatedbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_history_ID As Integer, ByVal Original_car_model As String, ByVal Original_car_price As String, ByVal Original_downpayment As String, ByVal Original_yearly_instalment As String, ByVal Original_yearly_expenses As String, ByVal Original_yearly_payment As String, ByVal Original_monthly_payment As String, ByVal Original_min_salary_own As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_history_ID As Integer, ByVal Original_car_ID As Global.System.Nullable(Of Integer), ByVal Original_car_model As String, ByVal Original_car_price As String, ByVal Original_downpayment As String, ByVal Original_yearly_instalment As String, ByVal Original_yearly_expenses As String, ByVal Original_yearly_payment As String, ByVal Original_monthly_payment As String, ByVal Original_min_salary_own As String, ByVal Original_cust_id As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_history_ID,Integer)
-            If (Original_car_model Is Nothing) Then
+            If (Original_car_ID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_car_ID.Value,Integer)
+            Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_car_model,String)
             End If
-            If (Original_car_price Is Nothing) Then
+            If (Original_car_model Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_car_price,String)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_car_model,String)
             End If
-            If (Original_downpayment Is Nothing) Then
+            If (Original_car_price Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_downpayment,String)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_car_price,String)
             End If
-            If (Original_yearly_instalment Is Nothing) Then
+            If (Original_downpayment Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_yearly_instalment,String)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_downpayment,String)
             End If
-            If (Original_yearly_expenses Is Nothing) Then
+            If (Original_yearly_instalment Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_yearly_expenses,String)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_yearly_instalment,String)
             End If
-            If (Original_yearly_payment Is Nothing) Then
+            If (Original_yearly_expenses Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_yearly_payment,String)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_yearly_expenses,String)
             End If
-            If (Original_monthly_payment Is Nothing) Then
+            If (Original_yearly_payment Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_monthly_payment,String)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_yearly_payment,String)
             End If
-            If (Original_min_salary_own Is Nothing) Then
+            If (Original_monthly_payment Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_min_salary_own,String)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_monthly_payment,String)
+            End If
+            If (Original_min_salary_own Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_min_salary_own,String)
+            End If
+            If (Original_cust_id.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_cust_id.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -4311,46 +3396,56 @@ Namespace carculatedbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal car_model As String, ByVal car_price As String, ByVal downpayment As String, ByVal yearly_instalment As String, ByVal yearly_expenses As String, ByVal yearly_payment As String, ByVal monthly_payment As String, ByVal min_salary_own As String) As Integer
-            If (car_model Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+        Public Overloads Overridable Function Insert(ByVal car_ID As Global.System.Nullable(Of Integer), ByVal car_model As String, ByVal car_price As String, ByVal downpayment As String, ByVal yearly_instalment As String, ByVal yearly_expenses As String, ByVal yearly_payment As String, ByVal monthly_payment As String, ByVal min_salary_own As String, ByVal cust_id As Global.System.Nullable(Of Integer)) As Integer
+            If (car_ID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(car_ID.Value,Integer)
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(car_model,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (car_price Is Nothing) Then
+            If (car_model Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(car_price,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(car_model,String)
             End If
-            If (downpayment Is Nothing) Then
+            If (car_price Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(downpayment,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(car_price,String)
             End If
-            If (yearly_instalment Is Nothing) Then
+            If (downpayment Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(yearly_instalment,String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(downpayment,String)
             End If
-            If (yearly_expenses Is Nothing) Then
+            If (yearly_instalment Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(yearly_expenses,String)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(yearly_instalment,String)
             End If
-            If (yearly_payment Is Nothing) Then
+            If (yearly_expenses Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(yearly_payment,String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(yearly_expenses,String)
             End If
-            If (monthly_payment Is Nothing) Then
+            If (yearly_payment Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(monthly_payment,String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(yearly_payment,String)
             End If
-            If (min_salary_own Is Nothing) Then
+            If (monthly_payment Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(min_salary_own,String)
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(monthly_payment,String)
+            End If
+            If (min_salary_own Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(min_salary_own,String)
+            End If
+            If (cust_id.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(cust_id.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -4372,6 +3467,7 @@ Namespace carculatedbDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
         Public Overloads Overridable Function Update( _
+                    ByVal car_ID As Global.System.Nullable(Of Integer),  _
                     ByVal car_model As String,  _
                     ByVal car_price As String,  _
                     ByVal downpayment As String,  _
@@ -4380,7 +3476,9 @@ Namespace carculatedbDataSetTableAdapters
                     ByVal yearly_payment As String,  _
                     ByVal monthly_payment As String,  _
                     ByVal min_salary_own As String,  _
+                    ByVal cust_id As Global.System.Nullable(Of Integer),  _
                     ByVal Original_history_ID As Integer,  _
+                    ByVal Original_car_ID As Global.System.Nullable(Of Integer),  _
                     ByVal Original_car_model As String,  _
                     ByVal Original_car_price As String,  _
                     ByVal Original_downpayment As String,  _
@@ -4388,103 +3486,128 @@ Namespace carculatedbDataSetTableAdapters
                     ByVal Original_yearly_expenses As String,  _
                     ByVal Original_yearly_payment As String,  _
                     ByVal Original_monthly_payment As String,  _
-                    ByVal Original_min_salary_own As String) As Integer
-            If (car_model Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+                    ByVal Original_min_salary_own As String,  _
+                    ByVal Original_cust_id As Global.System.Nullable(Of Integer)) As Integer
+            If (car_ID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(car_ID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(car_model,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (car_price Is Nothing) Then
+            If (car_model Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(car_price,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(car_model,String)
             End If
-            If (downpayment Is Nothing) Then
+            If (car_price Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(downpayment,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(car_price,String)
             End If
-            If (yearly_instalment Is Nothing) Then
+            If (downpayment Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(yearly_instalment,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(downpayment,String)
             End If
-            If (yearly_expenses Is Nothing) Then
+            If (yearly_instalment Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(yearly_expenses,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(yearly_instalment,String)
             End If
-            If (yearly_payment Is Nothing) Then
+            If (yearly_expenses Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(yearly_payment,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(yearly_expenses,String)
             End If
-            If (monthly_payment Is Nothing) Then
+            If (yearly_payment Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(monthly_payment,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(yearly_payment,String)
             End If
-            If (min_salary_own Is Nothing) Then
+            If (monthly_payment Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(min_salary_own,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(monthly_payment,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_history_ID,Integer)
-            If (Original_car_model Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            If (min_salary_own Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_car_model,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(min_salary_own,String)
             End If
-            If (Original_car_price Is Nothing) Then
+            If (cust_id.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(cust_id.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_history_ID,Integer)
+            If (Original_car_ID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_car_ID.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_car_price,String)
             End If
-            If (Original_downpayment Is Nothing) Then
+            If (Original_car_model Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_downpayment,String)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_car_model,String)
             End If
-            If (Original_yearly_instalment Is Nothing) Then
+            If (Original_car_price Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_yearly_instalment,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_car_price,String)
             End If
-            If (Original_yearly_expenses Is Nothing) Then
+            If (Original_downpayment Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_yearly_expenses,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_downpayment,String)
             End If
-            If (Original_yearly_payment Is Nothing) Then
+            If (Original_yearly_instalment Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_yearly_payment,String)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_yearly_instalment,String)
             End If
-            If (Original_monthly_payment Is Nothing) Then
+            If (Original_yearly_expenses Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_monthly_payment,String)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_yearly_expenses,String)
             End If
-            If (Original_min_salary_own Is Nothing) Then
+            If (Original_yearly_payment Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_min_salary_own,String)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_yearly_payment,String)
+            End If
+            If (Original_monthly_payment Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_monthly_payment,String)
+            End If
+            If (Original_min_salary_own Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_min_salary_own,String)
+            End If
+            If (Original_cust_id.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_cust_id.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -4517,8 +3640,6 @@ Namespace carculatedbDataSetTableAdapters
         
         Private _carTableAdapter As carTableAdapter
         
-        Private _car_inputTableAdapter As car_inputTableAdapter
-        
         Private _customerTableAdapter As customerTableAdapter
         
         Private _historyTableAdapter As historyTableAdapter
@@ -4549,20 +3670,6 @@ Namespace carculatedbDataSetTableAdapters
             End Get
             Set
                 Me._carTableAdapter = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property car_inputTableAdapter() As car_inputTableAdapter
-            Get
-                Return Me._car_inputTableAdapter
-            End Get
-            Set
-                Me._car_inputTableAdapter = value
             End Set
         End Property
         
@@ -4617,10 +3724,6 @@ Namespace carculatedbDataSetTableAdapters
                             AndAlso (Not (Me._carTableAdapter.Connection) Is Nothing)) Then
                     Return Me._carTableAdapter.Connection
                 End If
-                If ((Not (Me._car_inputTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._car_inputTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._car_inputTableAdapter.Connection
-                End If
                 If ((Not (Me._customerTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._customerTableAdapter.Connection) Is Nothing)) Then
                     Return Me._customerTableAdapter.Connection
@@ -4643,9 +3746,6 @@ Namespace carculatedbDataSetTableAdapters
             Get
                 Dim count As Integer = 0
                 If (Not (Me._carTableAdapter) Is Nothing) Then
-                    count = (count + 1)
-                End If
-                If (Not (Me._car_inputTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 If (Not (Me._customerTableAdapter) Is Nothing) Then
@@ -4671,15 +3771,6 @@ Namespace carculatedbDataSetTableAdapters
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._carTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._car_inputTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.car_input.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._car_inputTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -4716,14 +3807,6 @@ Namespace carculatedbDataSetTableAdapters
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._carTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._car_inputTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.car_input.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._car_inputTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -4766,14 +3849,6 @@ Namespace carculatedbDataSetTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._customerTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._car_inputTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.car_input.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._car_inputTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -4831,11 +3906,6 @@ Namespace carculatedbDataSetTableAdapters
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
-            If ((Not (Me._car_inputTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._car_inputTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
-                        "tring.")
-            End If
             If ((Not (Me._customerTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._customerTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
@@ -4885,15 +3955,6 @@ Namespace carculatedbDataSetTableAdapters
                     If Me._carTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._carTableAdapter.Adapter.AcceptChangesDuringUpdate = false
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._carTableAdapter.Adapter)
-                    End If
-                End If
-                If (Not (Me._car_inputTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._car_inputTableAdapter, Me._car_inputTableAdapter.Connection)
-                    Me._car_inputTableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
-                    Me._car_inputTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OleDb.OleDbTransaction)
-                    If Me._car_inputTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._car_inputTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._car_inputTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._customerTableAdapter) Is Nothing) Then
@@ -4977,10 +4038,6 @@ Namespace carculatedbDataSetTableAdapters
                 If (Not (Me._carTableAdapter) Is Nothing) Then
                     Me._carTableAdapter.Connection = CType(revertConnections(Me._carTableAdapter),Global.System.Data.OleDb.OleDbConnection)
                     Me._carTableAdapter.Transaction = Nothing
-                End If
-                If (Not (Me._car_inputTableAdapter) Is Nothing) Then
-                    Me._car_inputTableAdapter.Connection = CType(revertConnections(Me._car_inputTableAdapter),Global.System.Data.OleDb.OleDbConnection)
-                    Me._car_inputTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._customerTableAdapter) Is Nothing) Then
                     Me._customerTableAdapter.Connection = CType(revertConnections(Me._customerTableAdapter),Global.System.Data.OleDb.OleDbConnection)
