@@ -22,8 +22,7 @@ Public Class output
     End Sub
 
     Private Sub output_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the '_carculatedb_1__1_DataSet1.car' table. You can move, or remove it, as needed.
-        Me.CarTableAdapter.Fill(Me._carculatedb_1__1_DataSet1.car)
+
 
         'Database Connection
         Dim dbconn As New System.Data.OleDb.OleDbConnection()

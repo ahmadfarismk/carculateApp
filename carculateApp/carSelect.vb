@@ -70,7 +70,7 @@ Public Class carSelect
 
 
         Else
-            Me.Close()
+
         End If
 
     End Sub

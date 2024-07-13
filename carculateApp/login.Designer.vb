@@ -34,14 +34,9 @@ Partial Class login
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me._carculatedb_1__1_DataSet = New carculateApp._carculatedb_1__1_DataSet()
-        Me.CustomerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CustomerTableAdapter = New carculateApp._carculatedb_1__1_DataSetTableAdapters.customerTableAdapter()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._carculatedb_1__1_DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -153,19 +148,9 @@ Partial Class login
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        '_carculatedb_1__1_DataSet
+
         '
-        Me._carculatedb_1__1_DataSet.DataSetName = "_carculatedb_1__1_DataSet"
-        Me._carculatedb_1__1_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CustomerBindingSource
-        '
-        Me.CustomerBindingSource.DataMember = "customer"
-        Me.CustomerBindingSource.DataSource = Me._carculatedb_1__1_DataSet
-        '
-        'CustomerTableAdapter
-        '
-        Me.CustomerTableAdapter.ClearBeforeFill = True
+
         '
         'login
         '
@@ -186,7 +171,6 @@ Partial Class login
         Me.GroupBox1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._carculatedb_1__1_DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -202,7 +186,5 @@ Partial Class login
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents _carculatedb_1__1_DataSet As _carculatedb_1__1_DataSet
     Friend WithEvents CustomerBindingSource As BindingSource
-    Friend WithEvents CustomerTableAdapter As _carculatedb_1__1_DataSetTableAdapters.customerTableAdapter
 End Class

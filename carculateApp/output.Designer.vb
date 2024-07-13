@@ -22,7 +22,6 @@ Partial Class output
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(output))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -41,13 +40,8 @@ Partial Class output
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
-        Me._carculatedb_1__1_DataSet1 = New carculateApp._carculatedb_1__1_DataSet1()
-        Me.CarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CarTableAdapter = New carculateApp._carculatedb_1__1_DataSet1TableAdapters.carTableAdapter()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me._carculatedb_1__1_DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -217,20 +211,6 @@ Partial Class output
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
-        '_carculatedb_1__1_DataSet1
-        '
-        Me._carculatedb_1__1_DataSet1.DataSetName = "_carculatedb_1__1_DataSet1"
-        Me._carculatedb_1__1_DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CarBindingSource
-        '
-        Me.CarBindingSource.DataMember = "car"
-        Me.CarBindingSource.DataSource = Me._carculatedb_1__1_DataSet1
-        '
-        'CarTableAdapter
-        '
-        Me.CarTableAdapter.ClearBeforeFill = True
-        '
         'output
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -246,8 +226,6 @@ Partial Class output
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me._carculatedb_1__1_DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -270,7 +248,5 @@ Partial Class output
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents btnExit As Button
-    Friend WithEvents _carculatedb_1__1_DataSet1 As _carculatedb_1__1_DataSet1
-    Friend WithEvents CarBindingSource As BindingSource
-    Friend WithEvents CarTableAdapter As _carculatedb_1__1_DataSet1TableAdapters.carTableAdapter
+
 End Class
