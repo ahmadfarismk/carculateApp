@@ -258,65 +258,30 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="carculatedbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="carculatedbDataSet" msprop:Generator_DataSetName="carculatedbDataSet">
+  <xs:element name="carculatedbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="carculatedbDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="carculatedbDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="car" msprop:Generator_RowEvHandlerName="carRowChangeEventHandler" msprop:Generator_RowDeletedName="carRowDeleted" msprop:Generator_RowDeletingName="carRowDeleting" msprop:Generator_RowEvArgName="carRowChangeEvent" msprop:Generator_TablePropName="car" msprop:Generator_RowChangedName="carRowChanged" msprop:Generator_RowChangingName="carRowChanging" msprop:Generator_TableClassName="carDataTable" msprop:Generator_RowClassName="carRow" msprop:Generator_TableVarName="tablecar" msprop:Generator_UserTableName="car">
+        <xs:element name="car" msprop:Generator_RowClassName="carRow" msprop:Generator_RowEvHandlerName="carRowChangeEventHandler" msprop:Generator_RowDeletedName="carRowDeleted" msprop:Generator_RowDeletingName="carRowDeleting" msprop:Generator_RowEvArgName="carRowChangeEvent" msprop:Generator_TablePropName="car" msprop:Generator_RowChangedName="carRowChanged" msprop:Generator_UserTableName="car" msprop:Generator_RowChangingName="carRowChanging" msprop:Generator_TableClassName="carDataTable" msprop:Generator_TableVarName="tablecar">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="car_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="car_ID" msprop:Generator_ColumnPropNameInTable="car_IDColumn" msprop:Generator_ColumnVarNameInTable="columncar_ID" msprop:Generator_UserColumnName="car_ID" type="xs:int" />
-              <xs:element name="car_model" msprop:Generator_ColumnPropNameInRow="car_model" msprop:Generator_ColumnPropNameInTable="car_modelColumn" msprop:Generator_ColumnVarNameInTable="columncar_model" msprop:Generator_UserColumnName="car_model" minOccurs="0">
+              <xs:element name="car_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="car_ID" msprop:Generator_ColumnPropNameInTable="car_IDColumn" msprop:Generator_ColumnPropNameInRow="car_ID" msprop:Generator_ColumnVarNameInTable="columncar_ID" type="xs:int" />
+              <xs:element name="car_model" msprop:Generator_UserColumnName="car_model" msprop:Generator_ColumnPropNameInTable="car_modelColumn" msprop:Generator_ColumnPropNameInRow="car_model" msprop:Generator_ColumnVarNameInTable="columncar_model" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="536870910" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="car_cc" msprop:Generator_ColumnPropNameInRow="car_cc" msprop:Generator_ColumnPropNameInTable="car_ccColumn" msprop:Generator_ColumnVarNameInTable="columncar_cc" msprop:Generator_UserColumnName="car_cc" type="xs:int" minOccurs="0" />
-              <xs:element name="car_price" msprop:Generator_ColumnPropNameInRow="car_price" msprop:Generator_ColumnPropNameInTable="car_priceColumn" msprop:Generator_ColumnVarNameInTable="columncar_price" msprop:Generator_UserColumnName="car_price" type="xs:int" minOccurs="0" />
-              <xs:element name="insurance" msprop:Generator_ColumnPropNameInRow="insurance" msprop:Generator_ColumnPropNameInTable="insuranceColumn" msprop:Generator_ColumnVarNameInTable="columninsurance" msprop:Generator_UserColumnName="insurance" minOccurs="0">
+              <xs:element name="car_cc" msprop:Generator_UserColumnName="car_cc" msprop:Generator_ColumnPropNameInTable="car_ccColumn" msprop:Generator_ColumnPropNameInRow="car_cc" msprop:Generator_ColumnVarNameInTable="columncar_cc" type="xs:int" minOccurs="0" />
+              <xs:element name="car_price" msprop:Generator_UserColumnName="car_price" msprop:Generator_ColumnPropNameInTable="car_priceColumn" msprop:Generator_ColumnPropNameInRow="car_price" msprop:Generator_ColumnVarNameInTable="columncar_price" type="xs:int" minOccurs="0" />
+              <xs:element name="insurance" msprop:Generator_UserColumnName="insurance" msprop:Generator_ColumnPropNameInTable="insuranceColumn" msprop:Generator_ColumnPropNameInRow="insurance" msprop:Generator_ColumnVarNameInTable="columninsurance" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="year" msprop:Generator_ColumnPropNameInRow="year" msprop:Generator_ColumnPropNameInTable="yearColumn" msprop:Generator_ColumnVarNameInTable="columnyear" msprop:Generator_UserColumnName="year" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="customer" msprop:Generator_RowEvHandlerName="customerRowChangeEventHandler" msprop:Generator_RowDeletedName="customerRowDeleted" msprop:Generator_RowDeletingName="customerRowDeleting" msprop:Generator_RowEvArgName="customerRowChangeEvent" msprop:Generator_TablePropName="customer" msprop:Generator_RowChangedName="customerRowChanged" msprop:Generator_RowChangingName="customerRowChanging" msprop:Generator_TableClassName="customerDataTable" msprop:Generator_RowClassName="customerRow" msprop:Generator_TableVarName="tablecustomer" msprop:Generator_UserTableName="customer">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="cust_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="cust_ID" msprop:Generator_ColumnPropNameInTable="cust_IDColumn" msprop:Generator_ColumnVarNameInTable="columncust_ID" msprop:Generator_UserColumnName="cust_ID" type="xs:int" />
-              <xs:element name="cust_username" msprop:Generator_ColumnPropNameInRow="cust_username" msprop:Generator_ColumnPropNameInTable="cust_usernameColumn" msprop:Generator_ColumnVarNameInTable="columncust_username" msprop:Generator_UserColumnName="cust_username" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="cust_fullname" msprop:Generator_ColumnPropNameInRow="cust_fullname" msprop:Generator_ColumnPropNameInTable="cust_fullnameColumn" msprop:Generator_ColumnVarNameInTable="columncust_fullname" msprop:Generator_UserColumnName="cust_fullname" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="cust_email" msprop:Generator_ColumnPropNameInRow="cust_email" msprop:Generator_ColumnPropNameInTable="cust_emailColumn" msprop:Generator_ColumnVarNameInTable="columncust_email" msprop:Generator_UserColumnName="cust_email" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="cust_pass" msprop:Generator_ColumnPropNameInRow="cust_pass" msprop:Generator_ColumnPropNameInTable="cust_passColumn" msprop:Generator_ColumnVarNameInTable="columncust_pass" msprop:Generator_UserColumnName="cust_pass" minOccurs="0">
+              <xs:element name="year" msprop:Generator_UserColumnName="year" msprop:Generator_ColumnPropNameInTable="yearColumn" msprop:Generator_ColumnPropNameInRow="year" msprop:Generator_ColumnVarNameInTable="columnyear" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
@@ -326,68 +291,103 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="history" msprop:Generator_RowEvHandlerName="historyRowChangeEventHandler" msprop:Generator_RowDeletedName="historyRowDeleted" msprop:Generator_RowDeletingName="historyRowDeleting" msprop:Generator_RowEvArgName="historyRowChangeEvent" msprop:Generator_TablePropName="history" msprop:Generator_RowChangedName="historyRowChanged" msprop:Generator_RowChangingName="historyRowChanging" msprop:Generator_TableClassName="historyDataTable" msprop:Generator_RowClassName="historyRow" msprop:Generator_TableVarName="tablehistory" msprop:Generator_UserTableName="history">
+        <xs:element name="customer" msprop:Generator_RowClassName="customerRow" msprop:Generator_RowEvHandlerName="customerRowChangeEventHandler" msprop:Generator_RowDeletedName="customerRowDeleted" msprop:Generator_RowDeletingName="customerRowDeleting" msprop:Generator_RowEvArgName="customerRowChangeEvent" msprop:Generator_TablePropName="customer" msprop:Generator_RowChangedName="customerRowChanged" msprop:Generator_UserTableName="customer" msprop:Generator_RowChangingName="customerRowChanging" msprop:Generator_TableClassName="customerDataTable" msprop:Generator_TableVarName="tablecustomer">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="history_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="history_ID" msprop:Generator_ColumnPropNameInTable="history_IDColumn" msprop:Generator_ColumnVarNameInTable="columnhistory_ID" msprop:Generator_UserColumnName="history_ID" type="xs:int" />
-              <xs:element name="car_ID" msprop:Generator_ColumnPropNameInRow="car_ID" msprop:Generator_ColumnPropNameInTable="car_IDColumn" msprop:Generator_ColumnVarNameInTable="columncar_ID" msprop:Generator_UserColumnName="car_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="car_model" msprop:Generator_ColumnPropNameInRow="car_model" msprop:Generator_ColumnPropNameInTable="car_modelColumn" msprop:Generator_ColumnVarNameInTable="columncar_model" msprop:Generator_UserColumnName="car_model" minOccurs="0">
+              <xs:element name="cust_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="cust_ID" msprop:Generator_ColumnPropNameInTable="cust_IDColumn" msprop:Generator_ColumnPropNameInRow="cust_ID" msprop:Generator_ColumnVarNameInTable="columncust_ID" type="xs:int" />
+              <xs:element name="cust_username" msprop:Generator_UserColumnName="cust_username" msprop:Generator_ColumnPropNameInTable="cust_usernameColumn" msprop:Generator_ColumnPropNameInRow="cust_username" msprop:Generator_ColumnVarNameInTable="columncust_username" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="car_price" msprop:Generator_ColumnPropNameInRow="car_price" msprop:Generator_ColumnPropNameInTable="car_priceColumn" msprop:Generator_ColumnVarNameInTable="columncar_price" msprop:Generator_UserColumnName="car_price" minOccurs="0">
+              <xs:element name="cust_fullname" msprop:Generator_UserColumnName="cust_fullname" msprop:Generator_ColumnPropNameInTable="cust_fullnameColumn" msprop:Generator_ColumnPropNameInRow="cust_fullname" msprop:Generator_ColumnVarNameInTable="columncust_fullname" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="downpayment" msprop:Generator_ColumnPropNameInRow="downpayment" msprop:Generator_ColumnPropNameInTable="downpaymentColumn" msprop:Generator_ColumnVarNameInTable="columndownpayment" msprop:Generator_UserColumnName="downpayment" minOccurs="0">
+              <xs:element name="cust_email" msprop:Generator_UserColumnName="cust_email" msprop:Generator_ColumnPropNameInTable="cust_emailColumn" msprop:Generator_ColumnPropNameInRow="cust_email" msprop:Generator_ColumnVarNameInTable="columncust_email" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="yearly_instalment" msprop:Generator_ColumnPropNameInRow="yearly_instalment" msprop:Generator_ColumnPropNameInTable="yearly_instalmentColumn" msprop:Generator_ColumnVarNameInTable="columnyearly_instalment" msprop:Generator_UserColumnName="yearly_instalment" minOccurs="0">
+              <xs:element name="cust_pass" msprop:Generator_UserColumnName="cust_pass" msprop:Generator_ColumnPropNameInTable="cust_passColumn" msprop:Generator_ColumnPropNameInRow="cust_pass" msprop:Generator_ColumnVarNameInTable="columncust_pass" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="yearly_expenses" msprop:Generator_ColumnPropNameInRow="yearly_expenses" msprop:Generator_ColumnPropNameInTable="yearly_expensesColumn" msprop:Generator_ColumnVarNameInTable="columnyearly_expenses" msprop:Generator_UserColumnName="yearly_expenses" minOccurs="0">
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="history" msprop:Generator_RowClassName="historyRow" msprop:Generator_RowEvHandlerName="historyRowChangeEventHandler" msprop:Generator_RowDeletedName="historyRowDeleted" msprop:Generator_RowDeletingName="historyRowDeleting" msprop:Generator_RowEvArgName="historyRowChangeEvent" msprop:Generator_TablePropName="history" msprop:Generator_RowChangedName="historyRowChanged" msprop:Generator_UserTableName="history" msprop:Generator_RowChangingName="historyRowChanging" msprop:Generator_TableClassName="historyDataTable" msprop:Generator_TableVarName="tablehistory">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="history_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="history_ID" msprop:Generator_ColumnPropNameInTable="history_IDColumn" msprop:Generator_ColumnPropNameInRow="history_ID" msprop:Generator_ColumnVarNameInTable="columnhistory_ID" type="xs:int" />
+              <xs:element name="car_ID" msprop:Generator_UserColumnName="car_ID" msprop:Generator_ColumnPropNameInTable="car_IDColumn" msprop:Generator_ColumnPropNameInRow="car_ID" msprop:Generator_ColumnVarNameInTable="columncar_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="car_model" msprop:Generator_UserColumnName="car_model" msprop:Generator_ColumnPropNameInTable="car_modelColumn" msprop:Generator_ColumnPropNameInRow="car_model" msprop:Generator_ColumnVarNameInTable="columncar_model" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="yearly_payment" msprop:Generator_ColumnPropNameInRow="yearly_payment" msprop:Generator_ColumnPropNameInTable="yearly_paymentColumn" msprop:Generator_ColumnVarNameInTable="columnyearly_payment" msprop:Generator_UserColumnName="yearly_payment" minOccurs="0">
+              <xs:element name="car_price" msprop:Generator_UserColumnName="car_price" msprop:Generator_ColumnPropNameInTable="car_priceColumn" msprop:Generator_ColumnPropNameInRow="car_price" msprop:Generator_ColumnVarNameInTable="columncar_price" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="monthly_payment" msprop:Generator_ColumnPropNameInRow="monthly_payment" msprop:Generator_ColumnPropNameInTable="monthly_paymentColumn" msprop:Generator_ColumnVarNameInTable="columnmonthly_payment" msprop:Generator_UserColumnName="monthly_payment" minOccurs="0">
+              <xs:element name="downpayment" msprop:Generator_UserColumnName="downpayment" msprop:Generator_ColumnPropNameInTable="downpaymentColumn" msprop:Generator_ColumnPropNameInRow="downpayment" msprop:Generator_ColumnVarNameInTable="columndownpayment" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="min_salary_own" msprop:Generator_ColumnPropNameInRow="min_salary_own" msprop:Generator_ColumnPropNameInTable="min_salary_ownColumn" msprop:Generator_ColumnVarNameInTable="columnmin_salary_own" msprop:Generator_UserColumnName="min_salary_own" minOccurs="0">
+              <xs:element name="yearly_instalment" msprop:Generator_UserColumnName="yearly_instalment" msprop:Generator_ColumnPropNameInTable="yearly_instalmentColumn" msprop:Generator_ColumnPropNameInRow="yearly_instalment" msprop:Generator_ColumnVarNameInTable="columnyearly_instalment" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="cust_id" msprop:Generator_ColumnPropNameInRow="cust_id" msprop:Generator_ColumnPropNameInTable="cust_idColumn" msprop:Generator_ColumnVarNameInTable="columncust_id" msprop:Generator_UserColumnName="cust_id" type="xs:int" minOccurs="0" />
+              <xs:element name="yearly_expenses" msprop:Generator_UserColumnName="yearly_expenses" msprop:Generator_ColumnPropNameInTable="yearly_expensesColumn" msprop:Generator_ColumnPropNameInRow="yearly_expenses" msprop:Generator_ColumnVarNameInTable="columnyearly_expenses" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="yearly_payment" msprop:Generator_UserColumnName="yearly_payment" msprop:Generator_ColumnPropNameInTable="yearly_paymentColumn" msprop:Generator_ColumnPropNameInRow="yearly_payment" msprop:Generator_ColumnVarNameInTable="columnyearly_payment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="monthly_payment" msprop:Generator_UserColumnName="monthly_payment" msprop:Generator_ColumnPropNameInTable="monthly_paymentColumn" msprop:Generator_ColumnPropNameInRow="monthly_payment" msprop:Generator_ColumnVarNameInTable="columnmonthly_payment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="min_salary_own" msprop:Generator_UserColumnName="min_salary_own" msprop:Generator_ColumnPropNameInTable="min_salary_ownColumn" msprop:Generator_ColumnPropNameInRow="min_salary_own" msprop:Generator_ColumnVarNameInTable="columnmin_salary_own" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_id" msprop:Generator_UserColumnName="cust_id" msprop:Generator_ColumnPropNameInTable="cust_idColumn" msprop:Generator_ColumnPropNameInRow="cust_id" msprop:Generator_ColumnVarNameInTable="columncust_id" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -408,8 +408,8 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="carhistory" msdata:parent="car" msdata:child="history" msdata:parentkey="car_ID" msdata:childkey="car_ID" msprop:Generator_UserParentTable="car" msprop:Generator_UserChildTable="history" msprop:Generator_RelationVarName="relationcarhistory" msprop:Generator_ChildPropName="GethistoryRows" msprop:Generator_ParentPropName="carRow" msprop:Generator_UserRelationName="carhistory" />
-      <msdata:Relationship name="customerhistory" msdata:parent="customer" msdata:child="history" msdata:parentkey="cust_ID" msdata:childkey="cust_id" msprop:Generator_UserParentTable="customer" msprop:Generator_UserChildTable="history" msprop:Generator_RelationVarName="relationcustomerhistory" msprop:Generator_ChildPropName="GethistoryRows" msprop:Generator_ParentPropName="customerRow" msprop:Generator_UserRelationName="customerhistory" />
+      <msdata:Relationship name="carhistory" msdata:parent="car" msdata:child="history" msdata:parentkey="car_ID" msdata:childkey="car_ID" msprop:Generator_UserParentTable="car" msprop:Generator_UserChildTable="history" msprop:Generator_RelationVarName="relationcarhistory" msprop:Generator_ChildPropName="GethistoryRows" msprop:Generator_UserRelationName="carhistory" msprop:Generator_ParentPropName="carRow" />
+      <msdata:Relationship name="customerhistory" msdata:parent="customer" msdata:child="history" msdata:parentkey="cust_ID" msdata:childkey="cust_id" msprop:Generator_UserParentTable="customer" msprop:Generator_UserChildTable="history" msprop:Generator_RelationVarName="relationcustomerhistory" msprop:Generator_ChildPropName="GethistoryRows" msprop:Generator_UserRelationName="customerhistory" msprop:Generator_ParentPropName="customerRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

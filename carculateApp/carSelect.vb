@@ -44,17 +44,6 @@ Public Class carSelect
         dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=carculatedb.accdb"
         Dim Searchquery As String = "Select * from car where car_id=@id"
 
-        'Dim car As String
-        'If choose = 1 Then
-        '    car = "porsche"
-        'ElseIf choose = 2 Then
-        '    car = "lexus"
-        'ElseIf choose = 3 Then
-        '    car = "ford"
-        'ElseIf choose = 4 Then
-        '    car = "mclaren"
-        'End If
-
         Dim cmd As New OleDbCommand(Searchquery, dbconn)
         cmd.Parameters.AddWithValue("@id", choose)
         Dim sql As New OleDbDataAdapter(cmd)
