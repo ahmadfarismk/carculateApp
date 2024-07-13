@@ -161,7 +161,6 @@ Partial Class login
         Me.ClientSize = New System.Drawing.Size(529, 338)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox1)
-        Me.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerBindingSource, "cust_username", True))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "login"
@@ -171,7 +170,6 @@ Partial Class login
         Me.GroupBox1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
