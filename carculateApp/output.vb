@@ -8,18 +8,7 @@ Public Class output
 
     End Sub
 
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        lblDown.Text = ""
-        lblInstallment.Text = ""
-        lblYearExp.Text = ""
-        lblTotYear.Text = ""
-        lblMonthPay.Text = ""
-        lblSalary.Text = ""
-        Me.Close()
 
-
-
-    End Sub
 
     Private Sub output_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -39,10 +28,10 @@ Public Class output
 
         Dim year As Integer = Val(carSelect.txtYear.Text)
 
-        Dim cc As Integer = Convert.ToInt32(table.Rows(0)(2).ToString)
-        Dim price As Double = Convert.ToDouble(table.Rows(0)(3).ToString)
-        Dim insurance As Double = Convert.ToDouble(table.Rows(0)(4).ToString)
-        Dim roadtax As Double = 0.00
+        Dim cc As Integer = Convert.ToInt32(table.Rows(choose)(2).ToString)
+        Dim price As Double = Convert.ToDouble(table.Rows(choose)(3).ToString)
+        Dim insurance As Double = Convert.ToDouble(table.Rows(choose)(4).ToString)
+        Dim roadtax As Double
 
 
 
@@ -63,6 +52,7 @@ Public Class output
             roadtax = 2130.0 + (cc - 3000) * 4.5
         End If
 
+        lblCarName.Text = choose
 
         Dim downPayment = calcDownpayment(percentDown, price)
         Dim yearExpenses = calcYearExpenses(price, roadtax, insurance)
@@ -76,13 +66,12 @@ Public Class output
             lblInstallment.Text = yearInstall
             lblYearExp.Text = yearExpenses
             lblTotYear.Text = totYear
-            lblMonthPay.Text = monthPay
-            lblSalary.Text = minSal
+            lblMonthPay.Text = monthPay.ToString("F2")
+            lblSalary.Text = minSal.ToString("F2")
+
         Else
             MessageBox.Show("Username and Password do not match.", "Authentication Failure", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
-
-
 
     End Sub
 
@@ -90,12 +79,22 @@ Public Class output
 
     End Sub
 
-    Private Sub output_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+    'Private Sub output_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+    '    lblDown.Text = ""
+    '    lblInstallment.Text = ""
+    '    lblYearExp.Text = ""
+    '    lblTotYear.Text = ""
+    '    lblMonthPay.Text = ""
+    '    lblSalary.Text = ""
+    'End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         lblDown.Text = ""
         lblInstallment.Text = ""
         lblYearExp.Text = ""
         lblTotYear.Text = ""
         lblMonthPay.Text = ""
         lblSalary.Text = ""
+        Me.Close()
     End Sub
 End Class

@@ -7,7 +7,7 @@ Public Class carSelect
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
         Dim percentSal As String = txtPercent.Text
         Dim pay As String = txtYear.Text
-        Dim percentDown As Double
+
 
         If radBut10.Checked Then
             output.percentDown = 0.1
@@ -59,7 +59,8 @@ Public Class carSelect
 
 
         Else
-
+            Me.Close()
+            dbconn.Close()
         End If
 
     End Sub

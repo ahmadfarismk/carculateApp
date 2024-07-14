@@ -24,11 +24,11 @@
 
     Public Function calcYearInstall(ByVal opr1 As Double,
                                     ByVal opr2 As Double,
-                                    ByVal opr3 As Double) As Double
+                                    ByVal opr3 As Integer) As Double
 
         'Variable declaration
         Dim yearInstall As Double
-        yearInstall = (opr1 - opr2) / opr2
+        yearInstall = (opr1 - opr2) / opr3
 
         Return yearInstall
 
