@@ -102,6 +102,7 @@ Partial Class history
         'DataGridView1
         '
         Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HistoryIDDataGridViewTextBoxColumn, Me.CarIDDataGridViewTextBoxColumn, Me.CarmodelDataGridViewTextBoxColumn, Me.CarpriceDataGridViewTextBoxColumn, Me.DownpaymentDataGridViewTextBoxColumn, Me.YearlyinstalmentDataGridViewTextBoxColumn, Me.YearlyexpensesDataGridViewTextBoxColumn, Me.YearlypaymentDataGridViewTextBoxColumn, Me.MonthlypaymentDataGridViewTextBoxColumn, Me.MinsalaryownDataGridViewTextBoxColumn, Me.CustidDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.HistoryBindingSource1
