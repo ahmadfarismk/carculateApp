@@ -13,11 +13,16 @@ Public Class InputCar
         Dim carName As String = txtCarName.Text
         Dim carPrice As Double = Val(txtCarPrice.Text)
         Dim carCC As Integer = Val(txtCarCC.Text)
+        Dim carInsurance As Integer = Val(txtInsurance.Text)
+        Dim carYear As Integer = Val(txtCarYear.Text)
+
+
+
         Dim percentageSal As Double = Val(txtCarPercentage.Text)
-        Dim carYear As Integer = Val(txtYear.Text)
+        Dim carYearPay As Integer = Val(txtYear.Text)
         Dim percentageDown As Double
 
-        If carName = "" Or carPrice = 0 Or carCC = 0 Or percentageSal = 0 Or carYear = 0 Then
+        If carName = "" Or carPrice = 0 Or carCC = 0 Or percentageSal = 0 Or carYear = 0 Or carInsurance = 0 Or carYearPay = 0 Then
             MessageBox.Show("Please Enter all details", "Authentication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
@@ -34,21 +39,23 @@ Public Class InputCar
         Else
         End If
 
-        If (carName <> "" And carPrice <> 0 And carCC <> 0 And percentageSal <> 0 And carYear <> 0) Then
+        If (carName <> "" And carPrice <> 0 And carCC <> 0 And carInsurance <> 0 And carYear <> 0 And percentageSal <> 0 And carYearPay <> 0) Then
             'setting up db connection
             Dim dbconn As New System.Data.OleDb.OleDbConnection()
             dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=carculatedb.accdb"
             Try
                 ' Prepare the SQL insert statement
-                Dim sql As String = "INSERT INTO car_input(car_model, car_price, car_cc, percent_deduct_salary, downpayment,year_complete_payment) VALUES(@carName, @carPrice, @carCC, @percentageSal, @percentageDown, @carYear)"
+                Dim sql As String = "INSERT INTO car(car_model, car_cc, car_price, insurance, year) VALUES(@carName, @carCC, @carPrice, @carInsurance, @carYear)"
                 Dim sqlCom As New System.Data.OleDb.OleDbCommand(sql, dbconn)
                 ' Add parameters to the command
                 sqlCom.Parameters.AddWithValue("@carName", carName)
                 sqlCom.Parameters.AddWithValue("@carPrice", carPrice)
                 sqlCom.Parameters.AddWithValue("@carCC", carCC)
-                sqlCom.Parameters.AddWithValue("@percentageSal", percentageSal)
-                sqlCom.Parameters.AddWithValue("@percentageDown", percentageDown)
+                sqlCom.Parameters.AddWithValue("@carInsurance", carInsurance)
                 sqlCom.Parameters.AddWithValue("@carYear", carYear)
+
+
+
 
                 ' Open the database connection
                 dbconn.Open()
@@ -70,6 +77,14 @@ Public Class InputCar
             End Try
         End If
 
+
+    End Sub
+
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+
+    End Sub
+
+    Private Sub txtYear_TextChanged(sender As Object, e As EventArgs) Handles txtYear.TextChanged
 
     End Sub
 End Class

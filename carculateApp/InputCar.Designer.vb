@@ -42,8 +42,13 @@ Partial Class InputCar
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtInsurance = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtCarYear = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlPer.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -55,7 +60,7 @@ Partial Class InputCar
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(669, 86)
+        Me.PictureBox1.Size = New System.Drawing.Size(709, 86)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
@@ -65,9 +70,9 @@ Partial Class InputCar
         Me.pnlPer.Controls.Add(Me.radBut30)
         Me.pnlPer.Controls.Add(Me.radBut20)
         Me.pnlPer.Controls.Add(Me.radBut10)
-        Me.pnlPer.Location = New System.Drawing.Point(195, 464)
+        Me.pnlPer.Location = New System.Drawing.Point(64, 392)
         Me.pnlPer.Name = "pnlPer"
-        Me.pnlPer.Size = New System.Drawing.Size(297, 31)
+        Me.pnlPer.Size = New System.Drawing.Size(297, 35)
         Me.pnlPer.TabIndex = 20
         '
         'radBut30
@@ -110,7 +115,7 @@ Partial Class InputCar
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(225, 438)
+        Me.Label11.Location = New System.Drawing.Point(94, 360)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(238, 18)
         Me.Label11.TabIndex = 26
@@ -120,7 +125,7 @@ Partial Class InputCar
         '
         Me.btnEnter.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.btnEnter.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnEnter.Location = New System.Drawing.Point(274, 549)
+        Me.btnEnter.Location = New System.Drawing.Point(274, 613)
         Me.btnEnter.Name = "btnEnter"
         Me.btnEnter.Size = New System.Drawing.Size(110, 35)
         Me.btnEnter.TabIndex = 25
@@ -129,14 +134,14 @@ Partial Class InputCar
         '
         'txtYear
         '
-        Me.txtYear.Location = New System.Drawing.Point(219, 397)
+        Me.txtYear.Location = New System.Drawing.Point(97, 325)
         Me.txtYear.Name = "txtYear"
         Me.txtYear.Size = New System.Drawing.Size(251, 20)
         Me.txtYear.TabIndex = 24
         '
         'txtCarPercentage
         '
-        Me.txtCarPercentage.Location = New System.Drawing.Point(211, 328)
+        Me.txtCarPercentage.Location = New System.Drawing.Point(96, 253)
         Me.txtCarPercentage.Name = "txtCarPercentage"
         Me.txtCarPercentage.Size = New System.Drawing.Size(252, 20)
         Me.txtCarPercentage.TabIndex = 23
@@ -145,7 +150,7 @@ Partial Class InputCar
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(192, 365)
+        Me.Label10.Location = New System.Drawing.Point(61, 291)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(324, 18)
         Me.Label10.TabIndex = 22
@@ -155,7 +160,7 @@ Partial Class InputCar
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(208, 296)
+        Me.Label9.Location = New System.Drawing.Point(77, 232)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(271, 18)
         Me.Label9.TabIndex = 21
@@ -226,16 +231,60 @@ Partial Class InputCar
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.txtCarYear)
+        Me.Panel1.Controls.Add(Me.Label6)
+        Me.Panel1.Controls.Add(Me.txtInsurance)
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Controls.Add(Me.pnlPer)
+        Me.Panel1.Controls.Add(Me.Label11)
+        Me.Panel1.Controls.Add(Me.txtYear)
+        Me.Panel1.Controls.Add(Me.Label10)
+        Me.Panel1.Controls.Add(Me.txtCarPercentage)
+        Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Location = New System.Drawing.Point(130, 159)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(418, 370)
+        Me.Panel1.Size = New System.Drawing.Size(418, 448)
         Me.Panel1.TabIndex = 34
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(22, 136)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(115, 18)
+        Me.Label5.TabIndex = 32
+        Me.Label5.Text = "Enter insurance:"
+        '
+        'txtInsurance
+        '
+        Me.txtInsurance.Location = New System.Drawing.Point(143, 137)
+        Me.txtInsurance.Name = "txtInsurance"
+        Me.txtInsurance.Size = New System.Drawing.Size(252, 20)
+        Me.txtInsurance.TabIndex = 33
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(24, 173)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(79, 18)
+        Me.Label6.TabIndex = 34
+        Me.Label6.Text = "Enter year:"
+        '
+        'txtCarYear
+        '
+        Me.txtCarYear.Location = New System.Drawing.Point(143, 174)
+        Me.txtCarYear.Name = "txtCarYear"
+        Me.txtCarYear.Size = New System.Drawing.Size(252, 20)
+        Me.txtCarYear.TabIndex = 35
         '
         'InputCar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(669, 617)
+        Me.ClientSize = New System.Drawing.Size(709, 683)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtCarCC)
         Me.Controls.Add(Me.Label3)
@@ -243,13 +292,7 @@ Partial Class InputCar
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtCarName)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.pnlPer)
-        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.btnEnter)
-        Me.Controls.Add(Me.txtYear)
-        Me.Controls.Add(Me.txtCarPercentage)
-        Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "InputCar"
@@ -257,6 +300,8 @@ Partial Class InputCar
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlPer.ResumeLayout(False)
         Me.pnlPer.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -281,4 +326,8 @@ Partial Class InputCar
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents txtCarYear As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents txtInsurance As TextBox
+    Friend WithEvents Label5 As Label
 End Class
