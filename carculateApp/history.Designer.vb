@@ -31,9 +31,6 @@ Partial Class history
         Me.CarculatedbDataSet = New carculateApp.carculatedbDataSet()
         Me.HistoryTableAdapter = New carculateApp.carculatedbDataSetTableAdapters.historyTableAdapter()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.HistoryBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CarculatedbDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CarculatedbDataSet1 = New carculateApp.carculatedbDataSet()
         Me.HistoryIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CarIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CarmodelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,6 +42,10 @@ Partial Class history
         Me.MonthlypaymentDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MinsalaryownDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CustidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HistoryBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CarculatedbDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CarculatedbDataSet1 = New carculateApp.carculatedbDataSet()
+        Me.btnBack = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HistoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CarculatedbDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,7 +76,7 @@ Partial Class history
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1152, 86)
+        Me.PictureBox1.Size = New System.Drawing.Size(1085, 86)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
@@ -110,21 +111,6 @@ Partial Class history
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(1038, 216)
         Me.DataGridView1.TabIndex = 35
-        '
-        'HistoryBindingSource1
-        '
-        Me.HistoryBindingSource1.DataMember = "history"
-        Me.HistoryBindingSource1.DataSource = Me.CarculatedbDataSet1BindingSource
-        '
-        'CarculatedbDataSet1BindingSource
-        '
-        Me.CarculatedbDataSet1BindingSource.DataSource = Me.CarculatedbDataSet1
-        Me.CarculatedbDataSet1BindingSource.Position = 0
-        '
-        'CarculatedbDataSet1
-        '
-        Me.CarculatedbDataSet1.DataSetName = "carculatedbDataSet"
-        Me.CarculatedbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'HistoryIDDataGridViewTextBoxColumn
         '
@@ -192,11 +178,38 @@ Partial Class history
         Me.CustidDataGridViewTextBoxColumn.HeaderText = "cust_id"
         Me.CustidDataGridViewTextBoxColumn.Name = "CustidDataGridViewTextBoxColumn"
         '
+        'HistoryBindingSource1
+        '
+        Me.HistoryBindingSource1.DataMember = "history"
+        Me.HistoryBindingSource1.DataSource = Me.CarculatedbDataSet1BindingSource
+        '
+        'CarculatedbDataSet1BindingSource
+        '
+        Me.CarculatedbDataSet1BindingSource.DataSource = Me.CarculatedbDataSet1
+        Me.CarculatedbDataSet1BindingSource.Position = 0
+        '
+        'CarculatedbDataSet1
+        '
+        Me.CarculatedbDataSet1.DataSetName = "carculatedbDataSet"
+        Me.CarculatedbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'btnBack
+        '
+        Me.btnBack.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnBack.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnBack.Location = New System.Drawing.Point(510, 147)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(98, 34)
+        Me.btnBack.TabIndex = 36
+        Me.btnBack.Text = "Back"
+        Me.btnBack.UseVisualStyleBackColor = False
+        '
         'history
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1152, 540)
+        Me.ClientSize = New System.Drawing.Size(1085, 540)
+        Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.PictureBox1)
@@ -236,4 +249,5 @@ Partial Class history
     Friend WithEvents MonthlypaymentDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents MinsalaryownDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CustidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents btnBack As Button
 End Class
