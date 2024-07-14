@@ -46,6 +46,7 @@ Partial Class mainPage
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.currentID = New System.Windows.Forms.Label()
+        Me.btnLogout = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -299,11 +300,23 @@ Partial Class mainPage
         Me.currentID.TabIndex = 24
         Me.currentID.Text = "Label13"
         '
+        'btnLogout
+        '
+        Me.btnLogout.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnLogout.Location = New System.Drawing.Point(527, 100)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(98, 34)
+        Me.btnLogout.TabIndex = 25
+        Me.btnLogout.Text = "Log Out"
+        Me.btnLogout.UseVisualStyleBackColor = False
+        '
         'mainPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(637, 468)
+        Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.currentID)
         Me.Controls.Add(Me.btnhistory)
         Me.Controls.Add(Me.Button1)
@@ -345,4 +358,5 @@ Partial Class mainPage
     Friend WithEvents Button1 As Button
     Friend WithEvents btnhistory As Button
     Friend WithEvents currentID As Label
+    Friend WithEvents btnLogout As Button
 End Class

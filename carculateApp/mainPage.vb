@@ -35,4 +35,9 @@
         InputCar.ShowDialog()
 
     End Sub
+
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        login.Show()
+        Me.Close()
+    End Sub
 End Class

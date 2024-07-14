@@ -10,6 +10,9 @@ Public Class login
         Dim password As String = txtPassword.Text
         If (username = "" And password = "") Then
             MessageBox.Show("Username and password are blank", "Authentication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            txtUsername.Text = ""
+            txtPassword.Text = ""
         End If
         Dim dbconn As New System.Data.OleDb.OleDbConnection()
         dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=carculatedb.accdb"
