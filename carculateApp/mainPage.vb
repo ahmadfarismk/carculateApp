@@ -1,6 +1,6 @@
 ﻿Public Class mainPage
     Private Sub mainPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        currentID.Text = moduleProcesses.CurrentUserID
     End Sub
 
     Private Sub btnLFA_Click(sender As Object, e As EventArgs) Handles btnLFA.Click

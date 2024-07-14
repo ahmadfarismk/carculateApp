@@ -26,6 +26,7 @@ Public Class login
 
 
             If sqlRead.Read() Then
+                moduleProcesses.CurrentUserID = Convert.ToInt32(sqlRead("cust_ID"))
                 mainPage.Show()
                 Me.Hide()
             Else

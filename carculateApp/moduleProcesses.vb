@@ -1,4 +1,7 @@
 ﻿Module moduleProcesses
+
+    'Variable to hold the current user ID as session
+    Public CurrentUserID As Integer
     Public Function calcYearExpenses(ByVal opr1 As Double,
                                  ByVal opr2 As Double,
                                  ByVal opr3 As Double) As Double

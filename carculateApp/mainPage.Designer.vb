@@ -45,6 +45,7 @@ Partial Class mainPage
         Me.btnhistory = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.currentID = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -289,11 +290,21 @@ Partial Class mainPage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
+        'currentID
+        '
+        Me.currentID.AutoSize = True
+        Me.currentID.Location = New System.Drawing.Point(325, 92)
+        Me.currentID.Name = "currentID"
+        Me.currentID.Size = New System.Drawing.Size(45, 13)
+        Me.currentID.TabIndex = 24
+        Me.currentID.Text = "Label13"
+        '
         'mainPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(637, 468)
+        Me.Controls.Add(Me.currentID)
         Me.Controls.Add(Me.btnhistory)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
@@ -333,4 +344,5 @@ Partial Class mainPage
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
     Friend WithEvents btnhistory As Button
+    Friend WithEvents currentID As Label
 End Class

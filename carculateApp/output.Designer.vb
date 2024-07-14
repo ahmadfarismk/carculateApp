@@ -40,6 +40,8 @@ Partial Class output
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
+        Me.a = New System.Windows.Forms.Label()
+        Me.b = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -211,11 +213,31 @@ Partial Class output
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
+        'a
+        '
+        Me.a.AutoSize = True
+        Me.a.Location = New System.Drawing.Point(27, 177)
+        Me.a.Name = "a"
+        Me.a.Size = New System.Drawing.Size(39, 13)
+        Me.a.TabIndex = 5
+        Me.a.Text = "Label8"
+        '
+        'b
+        '
+        Me.b.AutoSize = True
+        Me.b.Location = New System.Drawing.Point(30, 208)
+        Me.b.Name = "b"
+        Me.b.Size = New System.Drawing.Size(39, 13)
+        Me.b.TabIndex = 6
+        Me.b.Text = "Label9"
+        '
         'output
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(658, 373)
+        Me.Controls.Add(Me.b)
+        Me.Controls.Add(Me.a)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblCarName)
@@ -248,5 +270,6 @@ Partial Class output
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents btnExit As Button
-
+    Friend WithEvents a As Label
+    Friend WithEvents b As Label
 End Class
