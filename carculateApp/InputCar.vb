@@ -31,12 +31,15 @@ Public Class InputCar
         If radBut10.Checked Then
             percentageDown = 0.1
             output.percentDown = 0.1
+            outputNew.percentDown = 0.1
         ElseIf radBut20.Checked Then
             percentageDown = 0.2
             output.percentDown = 0.2
+            outputNew.percentDown = 0.2
         ElseIf radBut30.Checked Then
             percentageDown = 0.3
             output.percentDown = 0.3
+            outputNew.percentDown = 0.3
         Else
             MessageBox.Show("Please select a down payment percentage", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
@@ -63,8 +66,19 @@ Public Class InputCar
             ' Execute the insert command
             Dim result As Integer = sqlCom.ExecuteNonQuery()
             If result > 0 Then
+                ' Get the ID of the newly inserted car
+                Dim getIdCmd As New OleDbCommand("SELECT @@IDENTITY", dbconn)
+                Dim newCarID As Integer = Convert.ToInt32(getIdCmd.ExecuteScalar())
+
                 MessageBox.Show("Car has been added, you may calculate now.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                output.Show()
+
+                ' Set the 'choose' property of the output form to the new car ID
+                Dim outputNew As New outputNew()
+                outputNew.choose = newCarID
+                outputNew.percentDown = percentageDown ' Pass the percentageDown to the output form
+
+                ' Show the output form
+                outputNew.Show()
                 Me.Hide()
             Else
                 MessageBox.Show("Car adding failed.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

@@ -45,9 +45,12 @@ Partial Class mainPage
         Me.btnhistory = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnLogout = New System.Windows.Forms.Button()
+        Me.CarculatedbDataSet1 = New carculateApp.carculatedbDataSet()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CarculatedbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
@@ -289,11 +292,28 @@ Partial Class mainPage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
+        'btnLogout
+        '
+        Me.btnLogout.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnLogout.Location = New System.Drawing.Point(527, 100)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(98, 34)
+        Me.btnLogout.TabIndex = 25
+        Me.btnLogout.Text = "Log Out"
+        Me.btnLogout.UseVisualStyleBackColor = False
+        '
+        'CarculatedbDataSet1
+        '
+        Me.CarculatedbDataSet1.DataSetName = "carculatedbDataSet"
+        Me.CarculatedbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'mainPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(637, 468)
+        Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.btnhistory)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
@@ -306,6 +326,7 @@ Partial Class mainPage
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CarculatedbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -333,4 +354,6 @@ Partial Class mainPage
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
     Friend WithEvents btnhistory As Button
+    Friend WithEvents btnLogout As Button
+    Friend WithEvents CarculatedbDataSet1 As carculatedbDataSet
 End Class
