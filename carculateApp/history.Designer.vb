@@ -31,6 +31,9 @@ Partial Class history
         Me.CarculatedbDataSet = New carculateApp.carculatedbDataSet()
         Me.HistoryTableAdapter = New carculateApp.carculatedbDataSetTableAdapters.historyTableAdapter()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.HistoryBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CarculatedbDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CarculatedbDataSet1 = New carculateApp.carculatedbDataSet()
         Me.HistoryIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CarIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CarmodelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -42,9 +45,6 @@ Partial Class history
         Me.MonthlypaymentDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MinsalaryownDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CustidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HistoryBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CarculatedbDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CarculatedbDataSet1 = New carculateApp.carculatedbDataSet()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HistoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CarculatedbDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,74 +108,8 @@ Partial Class history
         Me.DataGridView1.DataSource = Me.HistoryBindingSource1
         Me.DataGridView1.Location = New System.Drawing.Point(31, 187)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(1042, 216)
+        Me.DataGridView1.Size = New System.Drawing.Size(1038, 216)
         Me.DataGridView1.TabIndex = 35
-        '
-        'HistoryIDDataGridViewTextBoxColumn
-        '
-        Me.HistoryIDDataGridViewTextBoxColumn.DataPropertyName = "history_ID"
-        Me.HistoryIDDataGridViewTextBoxColumn.HeaderText = "history_ID"
-        Me.HistoryIDDataGridViewTextBoxColumn.Name = "HistoryIDDataGridViewTextBoxColumn"
-        '
-        'CarIDDataGridViewTextBoxColumn
-        '
-        Me.CarIDDataGridViewTextBoxColumn.DataPropertyName = "car_ID"
-        Me.CarIDDataGridViewTextBoxColumn.HeaderText = "car_ID"
-        Me.CarIDDataGridViewTextBoxColumn.Name = "CarIDDataGridViewTextBoxColumn"
-        '
-        'CarmodelDataGridViewTextBoxColumn
-        '
-        Me.CarmodelDataGridViewTextBoxColumn.DataPropertyName = "car_model"
-        Me.CarmodelDataGridViewTextBoxColumn.HeaderText = "car_model"
-        Me.CarmodelDataGridViewTextBoxColumn.Name = "CarmodelDataGridViewTextBoxColumn"
-        '
-        'CarpriceDataGridViewTextBoxColumn
-        '
-        Me.CarpriceDataGridViewTextBoxColumn.DataPropertyName = "car_price"
-        Me.CarpriceDataGridViewTextBoxColumn.HeaderText = "car_price"
-        Me.CarpriceDataGridViewTextBoxColumn.Name = "CarpriceDataGridViewTextBoxColumn"
-        '
-        'DownpaymentDataGridViewTextBoxColumn
-        '
-        Me.DownpaymentDataGridViewTextBoxColumn.DataPropertyName = "downpayment"
-        Me.DownpaymentDataGridViewTextBoxColumn.HeaderText = "downpayment"
-        Me.DownpaymentDataGridViewTextBoxColumn.Name = "DownpaymentDataGridViewTextBoxColumn"
-        '
-        'YearlyinstalmentDataGridViewTextBoxColumn
-        '
-        Me.YearlyinstalmentDataGridViewTextBoxColumn.DataPropertyName = "yearly_instalment"
-        Me.YearlyinstalmentDataGridViewTextBoxColumn.HeaderText = "yearly_instalment"
-        Me.YearlyinstalmentDataGridViewTextBoxColumn.Name = "YearlyinstalmentDataGridViewTextBoxColumn"
-        '
-        'YearlyexpensesDataGridViewTextBoxColumn
-        '
-        Me.YearlyexpensesDataGridViewTextBoxColumn.DataPropertyName = "yearly_expenses"
-        Me.YearlyexpensesDataGridViewTextBoxColumn.HeaderText = "yearly_expenses"
-        Me.YearlyexpensesDataGridViewTextBoxColumn.Name = "YearlyexpensesDataGridViewTextBoxColumn"
-        '
-        'YearlypaymentDataGridViewTextBoxColumn
-        '
-        Me.YearlypaymentDataGridViewTextBoxColumn.DataPropertyName = "yearly_payment"
-        Me.YearlypaymentDataGridViewTextBoxColumn.HeaderText = "yearly_payment"
-        Me.YearlypaymentDataGridViewTextBoxColumn.Name = "YearlypaymentDataGridViewTextBoxColumn"
-        '
-        'MonthlypaymentDataGridViewTextBoxColumn
-        '
-        Me.MonthlypaymentDataGridViewTextBoxColumn.DataPropertyName = "monthly_payment"
-        Me.MonthlypaymentDataGridViewTextBoxColumn.HeaderText = "monthly_payment"
-        Me.MonthlypaymentDataGridViewTextBoxColumn.Name = "MonthlypaymentDataGridViewTextBoxColumn"
-        '
-        'MinsalaryownDataGridViewTextBoxColumn
-        '
-        Me.MinsalaryownDataGridViewTextBoxColumn.DataPropertyName = "min_salary_own"
-        Me.MinsalaryownDataGridViewTextBoxColumn.HeaderText = "min_salary_own"
-        Me.MinsalaryownDataGridViewTextBoxColumn.Name = "MinsalaryownDataGridViewTextBoxColumn"
-        '
-        'CustidDataGridViewTextBoxColumn
-        '
-        Me.CustidDataGridViewTextBoxColumn.DataPropertyName = "cust_id"
-        Me.CustidDataGridViewTextBoxColumn.HeaderText = "cust_id"
-        Me.CustidDataGridViewTextBoxColumn.Name = "CustidDataGridViewTextBoxColumn"
         '
         'HistoryBindingSource1
         '
@@ -191,6 +125,72 @@ Partial Class history
         '
         Me.CarculatedbDataSet1.DataSetName = "carculatedbDataSet"
         Me.CarculatedbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'HistoryIDDataGridViewTextBoxColumn
+        '
+        Me.HistoryIDDataGridViewTextBoxColumn.DataPropertyName = "history_ID"
+        Me.HistoryIDDataGridViewTextBoxColumn.HeaderText = "history_ID"
+        Me.HistoryIDDataGridViewTextBoxColumn.Name = "HistoryIDDataGridViewTextBoxColumn"
+        '
+        'CarIDDataGridViewTextBoxColumn
+        '
+        Me.CarIDDataGridViewTextBoxColumn.DataPropertyName = "car_ID"
+        Me.CarIDDataGridViewTextBoxColumn.HeaderText = "Car ID"
+        Me.CarIDDataGridViewTextBoxColumn.Name = "CarIDDataGridViewTextBoxColumn"
+        '
+        'CarmodelDataGridViewTextBoxColumn
+        '
+        Me.CarmodelDataGridViewTextBoxColumn.DataPropertyName = "car_model"
+        Me.CarmodelDataGridViewTextBoxColumn.HeaderText = "Car Model"
+        Me.CarmodelDataGridViewTextBoxColumn.Name = "CarmodelDataGridViewTextBoxColumn"
+        '
+        'CarpriceDataGridViewTextBoxColumn
+        '
+        Me.CarpriceDataGridViewTextBoxColumn.DataPropertyName = "car_price"
+        Me.CarpriceDataGridViewTextBoxColumn.HeaderText = "Car Price"
+        Me.CarpriceDataGridViewTextBoxColumn.Name = "CarpriceDataGridViewTextBoxColumn"
+        '
+        'DownpaymentDataGridViewTextBoxColumn
+        '
+        Me.DownpaymentDataGridViewTextBoxColumn.DataPropertyName = "downpayment"
+        Me.DownpaymentDataGridViewTextBoxColumn.HeaderText = "Downpayment "
+        Me.DownpaymentDataGridViewTextBoxColumn.Name = "DownpaymentDataGridViewTextBoxColumn"
+        '
+        'YearlyinstalmentDataGridViewTextBoxColumn
+        '
+        Me.YearlyinstalmentDataGridViewTextBoxColumn.DataPropertyName = "yearly_instalment"
+        Me.YearlyinstalmentDataGridViewTextBoxColumn.HeaderText = "Yearly installment"
+        Me.YearlyinstalmentDataGridViewTextBoxColumn.Name = "YearlyinstalmentDataGridViewTextBoxColumn"
+        '
+        'YearlyexpensesDataGridViewTextBoxColumn
+        '
+        Me.YearlyexpensesDataGridViewTextBoxColumn.DataPropertyName = "yearly_expenses"
+        Me.YearlyexpensesDataGridViewTextBoxColumn.HeaderText = "Yearly expenses"
+        Me.YearlyexpensesDataGridViewTextBoxColumn.Name = "YearlyexpensesDataGridViewTextBoxColumn"
+        '
+        'YearlypaymentDataGridViewTextBoxColumn
+        '
+        Me.YearlypaymentDataGridViewTextBoxColumn.DataPropertyName = "yearly_payment"
+        Me.YearlypaymentDataGridViewTextBoxColumn.HeaderText = "Yearly payment cost"
+        Me.YearlypaymentDataGridViewTextBoxColumn.Name = "YearlypaymentDataGridViewTextBoxColumn"
+        '
+        'MonthlypaymentDataGridViewTextBoxColumn
+        '
+        Me.MonthlypaymentDataGridViewTextBoxColumn.DataPropertyName = "monthly_payment"
+        Me.MonthlypaymentDataGridViewTextBoxColumn.HeaderText = "Monthly payment cost"
+        Me.MonthlypaymentDataGridViewTextBoxColumn.Name = "MonthlypaymentDataGridViewTextBoxColumn"
+        '
+        'MinsalaryownDataGridViewTextBoxColumn
+        '
+        Me.MinsalaryownDataGridViewTextBoxColumn.DataPropertyName = "min_salary_own"
+        Me.MinsalaryownDataGridViewTextBoxColumn.HeaderText = "Minimum salary to own"
+        Me.MinsalaryownDataGridViewTextBoxColumn.Name = "MinsalaryownDataGridViewTextBoxColumn"
+        '
+        'CustidDataGridViewTextBoxColumn
+        '
+        Me.CustidDataGridViewTextBoxColumn.DataPropertyName = "cust_id"
+        Me.CustidDataGridViewTextBoxColumn.HeaderText = "cust_id"
+        Me.CustidDataGridViewTextBoxColumn.Name = "CustidDataGridViewTextBoxColumn"
         '
         'history
         '
