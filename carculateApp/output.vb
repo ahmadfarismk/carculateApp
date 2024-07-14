@@ -11,7 +11,7 @@ Public Class output
 
         ' Database Connection
         Dim dbconn As New OleDbConnection()
-        dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ahmad\source\repos\carculateApp3\carculateApp\carculatedb.accdb"
+        dbconn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=carculatedb.accdb"
 
         Try
             ' Open the database connection

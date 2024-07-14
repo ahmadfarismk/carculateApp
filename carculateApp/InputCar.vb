@@ -46,7 +46,7 @@ Public Class InputCar
         End If
 
         ' Set up database connection
-        Dim dbconn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ahmad\source\repos\carculateApp3\carculateApp\carculatedb.accdb")
+        Dim dbconn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=carculatedb.accdb")
 
         Try
             ' Prepare the SQL insert statement
