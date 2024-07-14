@@ -41,16 +41,20 @@ Public Class history
         End Using
     End Sub
 
-    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
-
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         mainPage.Show()
         Me.Close()
     End Sub
+
+    Private Sub MainPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MainPageToolStripMenuItem.Click
+        mainPage.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub AboutUsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutUsToolStripMenuItem.Click
+        AboutUs.Show()
+        Me.Close()
+    End Sub
+
 End Class

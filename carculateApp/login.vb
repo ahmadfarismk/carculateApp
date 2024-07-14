@@ -54,4 +54,15 @@ Public Class login
 
     End Sub
 
+    Private Sub AboutUsToolStripMenuItem1_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub HistoryToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub MainPageToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
 End Class

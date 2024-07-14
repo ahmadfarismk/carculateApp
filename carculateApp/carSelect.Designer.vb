@@ -44,9 +44,15 @@ Partial Class carSelect
         Me.Label11 = New System.Windows.Forms.Label()
         Me.pnlPer = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MainPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AbousUsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.YourHistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.pnlPer.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -261,13 +267,47 @@ Partial Class carSelect
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 24)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(594, 86)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 20
         Me.PictureBox1.TabStop = False
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(594, 24)
+        Me.MenuStrip1.TabIndex = 21
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'MenuToolStripMenuItem
+        '
+        Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MainPageToolStripMenuItem, Me.AbousUsToolStripMenuItem, Me.YourHistoryToolStripMenuItem})
+        Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
+        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
+        Me.MenuToolStripMenuItem.Text = "Menu"
+        '
+        'MainPageToolStripMenuItem
+        '
+        Me.MainPageToolStripMenuItem.Name = "MainPageToolStripMenuItem"
+        Me.MainPageToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MainPageToolStripMenuItem.Text = "Main Page"
+        '
+        'AbousUsToolStripMenuItem
+        '
+        Me.AbousUsToolStripMenuItem.Name = "AbousUsToolStripMenuItem"
+        Me.AbousUsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AbousUsToolStripMenuItem.Text = "About Us"
+        '
+        'YourHistoryToolStripMenuItem
+        '
+        Me.YourHistoryToolStripMenuItem.Name = "YourHistoryToolStripMenuItem"
+        Me.YourHistoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.YourHistoryToolStripMenuItem.Text = "Your History"
         '
         'carSelect
         '
@@ -284,6 +324,8 @@ Partial Class carSelect
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "carSelect"
         Me.Text = "carSelect"
         Me.Panel1.ResumeLayout(False)
@@ -291,6 +333,8 @@ Partial Class carSelect
         Me.pnlPer.ResumeLayout(False)
         Me.pnlPer.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -316,4 +360,9 @@ Partial Class carSelect
     Friend WithEvents Label11 As Label
     Friend WithEvents pnlPer As Panel
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents MenuToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MainPageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AbousUsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents YourHistoryToolStripMenuItem As ToolStripMenuItem
 End Class

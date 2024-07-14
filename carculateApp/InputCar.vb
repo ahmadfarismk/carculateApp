@@ -98,4 +98,19 @@ Public Class InputCar
     Private Sub txtYear_TextChanged(sender As Object, e As EventArgs) Handles txtYear.TextChanged
         ' Handle text change event if needed
     End Sub
+
+    Private Sub MainPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MainPageToolStripMenuItem.Click
+        mainPage.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub AbousUsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AbousUsToolStripMenuItem.Click
+        AboutUs.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub YourHistoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles YourHistoryToolStripMenuItem.Click
+        history.Show()
+        Me.Close()
+    End Sub
 End Class

@@ -47,10 +47,16 @@ Partial Class mainPage
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.CarculatedbDataSet1 = New carculateApp.carculatedbDataSet()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MainPageMenuTool = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutUsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CarculatedbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label2
@@ -86,7 +92,7 @@ Partial Class mainPage
         '
         Me.lblMdl.AutoSize = True
         Me.lblMdl.Font = New System.Drawing.Font("Gill Sans Ultra Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMdl.Location = New System.Drawing.Point(12, 107)
+        Me.lblMdl.Location = New System.Drawing.Point(11, 124)
         Me.lblMdl.Name = "lblMdl"
         Me.lblMdl.Size = New System.Drawing.Size(83, 20)
         Me.lblMdl.TabIndex = 2
@@ -238,7 +244,7 @@ Partial Class mainPage
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 256)
+        Me.Panel1.Location = New System.Drawing.Point(0, 280)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(637, 113)
         Me.Panel1.TabIndex = 20
@@ -270,7 +276,7 @@ Partial Class mainPage
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Top
         Me.PictureBox2.Image = Global.carculateApp.My.Resources.Resources.gambar_kereta1
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 86)
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 110)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Padding = New System.Windows.Forms.Padding(0, 50, 0, 0)
         Me.PictureBox2.Size = New System.Drawing.Size(637, 170)
@@ -284,7 +290,7 @@ Partial Class mainPage
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 24)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(637, 86)
@@ -296,7 +302,7 @@ Partial Class mainPage
         '
         Me.btnLogout.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnLogout.Location = New System.Drawing.Point(527, 100)
+        Me.btnLogout.Location = New System.Drawing.Point(527, 117)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(98, 34)
         Me.btnLogout.TabIndex = 25
@@ -307,6 +313,40 @@ Partial Class mainPage
         '
         Me.CarculatedbDataSet1.DataSetName = "carculatedbDataSet"
         Me.CarculatedbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(637, 24)
+        Me.MenuStrip1.TabIndex = 26
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'MenuToolStripMenuItem
+        '
+        Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MainPageMenuTool, Me.AboutUsToolStripMenuItem1, Me.HistoryToolStripMenuItem})
+        Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
+        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
+        Me.MenuToolStripMenuItem.Text = "Menu"
+        '
+        'MainPageMenuTool
+        '
+        Me.MainPageMenuTool.Name = "MainPageMenuTool"
+        Me.MainPageMenuTool.Size = New System.Drawing.Size(180, 22)
+        Me.MainPageMenuTool.Text = "Main Page"
+        '
+        'AboutUsToolStripMenuItem1
+        '
+        Me.AboutUsToolStripMenuItem1.Name = "AboutUsToolStripMenuItem1"
+        Me.AboutUsToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.AboutUsToolStripMenuItem1.Text = "About Us"
+        '
+        'HistoryToolStripMenuItem
+        '
+        Me.HistoryToolStripMenuItem.Name = "HistoryToolStripMenuItem"
+        Me.HistoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HistoryToolStripMenuItem.Text = "History"
         '
         'mainPage
         '
@@ -320,6 +360,8 @@ Partial Class mainPage
         Me.Controls.Add(Me.lblMdl)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "mainPage"
         Me.Text = "mainPage"
         Me.Panel1.ResumeLayout(False)
@@ -327,6 +369,8 @@ Partial Class mainPage
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CarculatedbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -356,4 +400,9 @@ Partial Class mainPage
     Friend WithEvents btnhistory As Button
     Friend WithEvents btnLogout As Button
     Friend WithEvents CarculatedbDataSet1 As carculatedbDataSet
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents MenuToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MainPageMenuTool As ToolStripMenuItem
+    Friend WithEvents AboutUsToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents HistoryToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -23,7 +23,6 @@ Partial Class InputCar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(InputCar))
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pnlPer = New System.Windows.Forms.Panel()
         Me.radBut30 = New System.Windows.Forms.RadioButton()
         Me.radBut20 = New System.Windows.Forms.RadioButton()
@@ -42,28 +41,21 @@ Partial Class InputCar
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtInsurance = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.txtCarYear = New System.Windows.Forms.TextBox()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtInsurance = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MainPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AbousUsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.YourHistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlPer.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(709, 86)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
         '
         'pnlPer
         '
@@ -246,22 +238,12 @@ Partial Class InputCar
         Me.Panel1.Size = New System.Drawing.Size(418, 448)
         Me.Panel1.TabIndex = 34
         '
-        'Label5
+        'txtCarYear
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(22, 136)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(115, 18)
-        Me.Label5.TabIndex = 32
-        Me.Label5.Text = "Enter insurance:"
-        '
-        'txtInsurance
-        '
-        Me.txtInsurance.Location = New System.Drawing.Point(143, 137)
-        Me.txtInsurance.Name = "txtInsurance"
-        Me.txtInsurance.Size = New System.Drawing.Size(252, 20)
-        Me.txtInsurance.TabIndex = 33
+        Me.txtCarYear.Location = New System.Drawing.Point(143, 174)
+        Me.txtCarYear.Name = "txtCarYear"
+        Me.txtCarYear.Size = New System.Drawing.Size(252, 20)
+        Me.txtCarYear.TabIndex = 35
         '
         'Label6
         '
@@ -273,12 +255,70 @@ Partial Class InputCar
         Me.Label6.TabIndex = 34
         Me.Label6.Text = "Enter year:"
         '
-        'txtCarYear
+        'txtInsurance
         '
-        Me.txtCarYear.Location = New System.Drawing.Point(143, 174)
-        Me.txtCarYear.Name = "txtCarYear"
-        Me.txtCarYear.Size = New System.Drawing.Size(252, 20)
-        Me.txtCarYear.TabIndex = 35
+        Me.txtInsurance.Location = New System.Drawing.Point(143, 137)
+        Me.txtInsurance.Name = "txtInsurance"
+        Me.txtInsurance.Size = New System.Drawing.Size(252, 20)
+        Me.txtInsurance.TabIndex = 33
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(22, 136)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(115, 18)
+        Me.Label5.TabIndex = 32
+        Me.Label5.Text = "Enter insurance:"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 24)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(709, 86)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(709, 24)
+        Me.MenuStrip1.TabIndex = 35
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'MenuToolStripMenuItem
+        '
+        Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MainPageToolStripMenuItem, Me.AbousUsToolStripMenuItem, Me.YourHistoryToolStripMenuItem})
+        Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
+        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
+        Me.MenuToolStripMenuItem.Text = "Menu"
+        '
+        'MainPageToolStripMenuItem
+        '
+        Me.MainPageToolStripMenuItem.Name = "MainPageToolStripMenuItem"
+        Me.MainPageToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MainPageToolStripMenuItem.Text = "Main Page"
+        '
+        'AbousUsToolStripMenuItem
+        '
+        Me.AbousUsToolStripMenuItem.Name = "AbousUsToolStripMenuItem"
+        Me.AbousUsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AbousUsToolStripMenuItem.Text = "Abous Us"
+        '
+        'YourHistoryToolStripMenuItem
+        '
+        Me.YourHistoryToolStripMenuItem.Name = "YourHistoryToolStripMenuItem"
+        Me.YourHistoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.YourHistoryToolStripMenuItem.Text = "Your History"
         '
         'InputCar
         '
@@ -295,13 +335,17 @@ Partial Class InputCar
         Me.Controls.Add(Me.btnEnter)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "InputCar"
         Me.Text = "InputCar"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlPer.ResumeLayout(False)
         Me.pnlPer.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -330,4 +374,9 @@ Partial Class InputCar
     Friend WithEvents Label6 As Label
     Friend WithEvents txtInsurance As TextBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents MenuToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MainPageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AbousUsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents YourHistoryToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -25,7 +25,6 @@ Partial Class history
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(history))
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.HistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CarculatedbDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CarculatedbDataSet = New carculateApp.carculatedbDataSet()
@@ -46,7 +45,12 @@ Partial Class history
         Me.CarculatedbDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CarculatedbDataSet1 = New carculateApp.carculatedbDataSet()
         Me.btnBack = New System.Windows.Forms.Button()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MainPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutUsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.HistoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CarculatedbDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CarculatedbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,6 +58,8 @@ Partial Class history
         CType(Me.HistoryBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CarculatedbDataSet1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CarculatedbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label4
@@ -66,20 +72,6 @@ Partial Class history
         Me.Label4.Size = New System.Drawing.Size(237, 26)
         Me.Label4.TabIndex = 34
         Me.Label4.Text = "Your order history"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1085, 86)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
         '
         'HistoryBindingSource
         '
@@ -204,6 +196,54 @@ Partial Class history
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = False
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 24)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1085, 86)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1085, 24)
+        Me.MenuStrip1.TabIndex = 37
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'MenuToolStripMenuItem
+        '
+        Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MainPageToolStripMenuItem, Me.AboutUsToolStripMenuItem, Me.HistoryToolStripMenuItem})
+        Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
+        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
+        Me.MenuToolStripMenuItem.Text = "Menu"
+        '
+        'MainPageToolStripMenuItem
+        '
+        Me.MainPageToolStripMenuItem.Name = "MainPageToolStripMenuItem"
+        Me.MainPageToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MainPageToolStripMenuItem.Text = "Main Page"
+        '
+        'AboutUsToolStripMenuItem
+        '
+        Me.AboutUsToolStripMenuItem.Name = "AboutUsToolStripMenuItem"
+        Me.AboutUsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AboutUsToolStripMenuItem.Text = "About Us"
+        '
+        'HistoryToolStripMenuItem
+        '
+        Me.HistoryToolStripMenuItem.Name = "HistoryToolStripMenuItem"
+        Me.HistoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HistoryToolStripMenuItem.Text = "History"
+        '
         'history
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -213,9 +253,10 @@ Partial Class history
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "history"
         Me.Text = "history"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HistoryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CarculatedbDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CarculatedbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -223,6 +264,9 @@ Partial Class history
         CType(Me.HistoryBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CarculatedbDataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CarculatedbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -250,4 +294,9 @@ Partial Class history
     Friend WithEvents MinsalaryownDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CustidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents btnBack As Button
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents MenuToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MainPageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AboutUsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HistoryToolStripMenuItem As ToolStripMenuItem
 End Class

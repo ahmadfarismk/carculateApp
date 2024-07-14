@@ -44,4 +44,12 @@
     Private Sub btnhistory_Click(sender As Object, e As EventArgs) Handles btnhistory.Click
         history.Show()
     End Sub
+
+    Private Sub HistoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoryToolStripMenuItem.Click
+        history.Show()
+    End Sub
+
+    Private Sub AboutUsToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AboutUsToolStripMenuItem1.Click
+        AboutUs.Show()
+    End Sub
 End Class

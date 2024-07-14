@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class login
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,8 @@ Partial Class login
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(login))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnRegister = New System.Windows.Forms.Button()
@@ -51,9 +50,9 @@ Partial Class login
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.Location = New System.Drawing.Point(160, 114)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(211, 172)
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
@@ -61,7 +60,7 @@ Partial Class login
         'btnRegister
         '
         Me.btnRegister.Location = New System.Drawing.Point(118, 127)
-        Me.btnRegister.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnRegister.Margin = New System.Windows.Forms.Padding(2)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(71, 25)
         Me.btnRegister.TabIndex = 6
@@ -71,7 +70,7 @@ Partial Class login
         'btnLogin
         '
         Me.btnLogin.Location = New System.Drawing.Point(18, 127)
-        Me.btnLogin.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnLogin.Margin = New System.Windows.Forms.Padding(2)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(71, 25)
         Me.btnLogin.TabIndex = 5
@@ -81,7 +80,7 @@ Partial Class login
         'txtPassword
         '
         Me.txtPassword.Location = New System.Drawing.Point(78, 89)
-        Me.txtPassword.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtPassword.Margin = New System.Windows.Forms.Padding(2)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(112, 20)
         Me.txtPassword.TabIndex = 4
@@ -90,7 +89,7 @@ Partial Class login
         'txtUsername
         '
         Me.txtUsername.Location = New System.Drawing.Point(78, 47)
-        Me.txtUsername.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtUsername.Margin = New System.Windows.Forms.Padding(2)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(112, 20)
         Me.txtUsername.TabIndex = 3
@@ -129,7 +128,7 @@ Partial Class login
         '
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Location = New System.Drawing.Point(-1, -1)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(534, 82)
         Me.Panel1.TabIndex = 8
@@ -141,16 +140,12 @@ Partial Class login
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(534, 86)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
-        '
-
-        '
-
         '
         'login
         '
@@ -162,7 +157,7 @@ Partial Class login
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "login"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "login"
