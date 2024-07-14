@@ -133,6 +133,12 @@
     <Compile Include="output.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="outputNew.Designer.vb">
+      <DependentUpon>outputNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="outputNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="register.Designer.vb">
       <DependentUpon>register.vb</DependentUpon>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="output.resx">
       <DependentUpon>output.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="outputNew.resx">
+      <DependentUpon>outputNew.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="register.resx">
       <DependentUpon>register.vb</DependentUpon>
